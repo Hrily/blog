@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Render Large HTML Tables efficiently using Infinite Scrolling – Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+	</script>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+			});
+		}, 100);
+	}
+
+</script>
+
+<a class="fade-in back" href="javascript:history.back()">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post">
+	<div class="row">
+		
+		<div class="col-left sans">
+			<div class="heading black">Render Large HTML Tables efficiently using Infinite Scrolling</div>
+			<div class="fade-in">
+				<br>
+				MAY 20, 2017<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					
+						<a href="/blog/tags#HTML">
+							<div>HTML</div>
+						</a>
+					
+						<a href="/blog/tags#JS">
+							<div>JS</div>
+						</a>
+					
+						<a href="/blog/tags#JQUERY">
+							<div>JQUERY</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading">Tutorial on implementation of Infinite Scrolling using JS and jQuery</div>
+			<p>Hie</p>
+
+<p>Writing after a long time. I’m currently doing an internship along with my friend Salman, where I am creating a database web app to view datatables.</p>
+
+<p>One difficulty we faced was, sometimes the number of rows in the table went as high as 5000. So, if you render a html table with such high number of rows, it adds a lot of nodes into DOM tree. The result of this is the page becomes really slow and laggy. We also had searching and sorting to it which made the condition even worse.</p>
+
+<p>So I researched about this issue over the internet and I found a real nice solution for this problem - <strong>Infinite Scroll</strong></p>
+
+<p>This solution was one of the few issues talked in the <a href="https://youtu.be/mmq-KVeO-uU?list=PL97ONIvdSJxijNu7ydnyxwMoje3lbIEM1">Creating UX that “Just Feels Right” with Progressive Web Apps</a> talk at Google I/O 17.</p>
+
+<p><br />
+The solution lets you render tables or list with infinite entries, woah! The key idea of the solution is to render only those entries/rows which are currently in the visible portion of the page. A nice idea! But how?</p>
+
+<p><br />
+So the key is to render only those rows which are currently visible, say N visible rows. Now we need to figure out a way to keep these N rows always in the visible portion and chage the row values according to the ones which should be visible at that portion. Wait, what’s going on!</p>
+
+<p>Lets say we have first N rows (ie [1..N]) visible portion. Now when the user scrolls to the part where N+1 row should be visible, we will render rows 2 through N+1 (ie [2..N+1]) in the same N rows and push the N rows down by height of one row. This happens so fast that user doesn’t even feel that he is seeing the same N rows. Yeah, now we can show infinite rows right!</p>
+
+<p><br /></p>
+<p class="image"><img src="/blog/images/infinite_scroll/push1down.jpg" /></p>
+
+<p><br /></p>
+
+<p>The better approach to this is, having 2*N rows with one <em>filler</em> row after first N rows. Now the job of this filler is to grow as the screen is scrolled so that last N rows are always in the visible portion of the screen.</p>
+
+<p><br /></p>
+<p class="image"><img src="/blog/images/infinite_scroll/filler.jpg" /></p>
+
+<p><br /></p>
+
+<p>So, now that we have understood the idea, let’s have a look at the implementation. For a demo, I’m creating a table with <em>Lorem Ipsum</em> texts. First we need to initialize the table, here’s the code:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Lorem Ipsum List</span>
+<span class="kd">var</span> <span class="nx">lorem</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"Lorem ipsum"</span><span class="p">,</span> <span class="s2">"Dolor sit"</span><span class="p">,...];</span>
+<span class="c1">// Number of visible </span>
+<span class="kd">var</span> <span class="nx">nVisible</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> 
+    <span class="nx">rowHeight</span><span class="p">,</span>
+    <span class="nx">maxRows</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+
+<span class="cm">/* 
+ * Function to get row data
+ * @param
+ *     row - row number
+ * @returns
+ *     HTML string to the row data
+ */</span>
+<span class="kd">function</span> <span class="nx">get_data</span><span class="p">(</span><span class="nx">row</span><span class="p">){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">row</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">lorem</span><span class="p">[</span><span class="nx">row</span><span class="o">%</span><span class="mi">100</span><span class="p">];</span>
+	<span class="nx">row</span><span class="o">++</span><span class="p">;</span>
+	<span class="nx">html</span> <span class="o">=</span>  <span class="s1">'&lt;td&gt;&lt;div class="circle-char"&gt;'</span> <span class="o">+</span> <span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;/div&gt;&lt;/td&gt;'</span><span class="p">;</span>
+	<span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;td&gt;'</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s1">'&lt;/td&gt;'</span><span class="p">;</span>
+	<span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;td&gt;'</span> <span class="o">+</span> <span class="nx">row</span>  <span class="o">+</span> <span class="s1">'&lt;/td&gt;'</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">html</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* 
+ * Function to initialize table
+ */</span>
+<span class="kd">function</span> <span class="nx">tableInit</span><span class="p">(){</span>
+	<span class="c1">// Add Initial data</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="nx">n_visible</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">i</span><span class="o">==</span><span class="nx">n_visible</span><span class="p">)</span>
+			<span class="c1">// Filler Row</span>
+			<span class="nx">$</span><span class="p">(</span><span class="s1">'table tbody'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">'&lt;tr id="filler" style="height: 0;"&gt;&lt;/tr&gt;'</span><span class="p">);</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s1">'table tbody'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">'&lt;tr&gt;'</span> <span class="o">+</span> <span class="nx">get_data</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;/tr&gt;'</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="c1">// Calculate Row height</span>
+	<span class="nx">rowHeight</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'table tbody tr'</span><span class="p">).</span><span class="nx">outerHeight</span><span class="p">();</span>
+	<span class="c1">// Update body height to fit maxRows</span>
+	<span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'height'</span><span class="p">,</span> <span class="p">(</span><span class="nx">maxRows</span><span class="o">*</span><span class="nx">rowHeight</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'px'</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>First we defined the list to be rendered, then the global variables denoting the number of visible rows (N), the row height (useful in setting height of filler), and the max number of rows.</p>
+
+<p>Then we have a helper function to get htmll string of given row index. Then we have the table initialization function, where we render 2*N rows with N’th row as filler with height 0 because initially all 2*N rows are visible . Then we set body height as total number of rows times row height, so that user gets a feel that there are lot of rows.</p>
+
+<p><br />
+Now let’s see how to render visible rows given the scrolling position of the screen.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*
+ * Function to draw visible rows
+ */</span>
+<span class="kd">function</span> <span class="nx">tableDrawVisible</span><span class="p">(){</span>
+	<span class="c1">// Calculate visible row start index</span>
+	<span class="kd">var</span> <span class="nx">offsetTop</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#filler'</span><span class="p">).</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">-</span> <span class="nx">offsetTop</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">visibleIndex</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">diff</span><span class="o">/</span><span class="nx">rowHeight</span><span class="p">)</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">visibleIndex</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">){</span>
+		<span class="c1">// Print visible rows</span>
+		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">51</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mi">101</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+			<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">visibleIndex</span><span class="p">;</span>
+			<span class="nx">$</span><span class="p">(</span><span class="s1">'table tbody tr:nth-child('</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">')'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">get_data</span><span class="p">(</span><span class="nx">j</span><span class="p">));</span>
+		<span class="p">}</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s1">'#filler'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'height'</span><span class="p">,</span> <span class="p">(</span><span class="nx">visibleIndex</span><span class="o">*</span><span class="nx">rowHeight</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'px'</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br />
+First we calculated the index of the first visible row. To do that we need to get top position of filler and the window scroll position, the visible index will be the division of difference betweenn filler top and window scroll with the row height. 
+Now when we get the index of first visible row, we replace the last N rows with the N rows starting from visible index. 
+Then we just set the filler height to <code class="highlighter-rouge">visibleIndex*rowHeight</code> so that the last N rows are pushed into visible portion. Easy!</p>
+
+<p><br />
+Now we need to link the <code class="highlighter-rouge">tableDrawVisible()</code> with scrolling event of the window.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Timer for scroll event trigger</span>
+<span class="kd">var</span> <span class="nx">timer</span><span class="p">;</span>
+
+<span class="c1">// Set OnScroll Listener</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">35</span><span class="o">*</span><span class="nx">rowHeight</span> <span class="o">&amp;&amp;</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">35</span><span class="o">*</span><span class="nx">rowHeight</span><span class="p">){</span>
+		<span class="c1">// Clear Scroll Trigger Timer if exists</span>
+		<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+		<span class="c1">// Start Scroll Trigger Timer</span>
+		<span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="nx">tableDrawVisible</span><span class="p">();</span>
+		<span class="p">},</span> <span class="mi">5</span><span class="p">)</span>
+	<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="o">*</span><span class="nx">rowHeight</span><span class="p">){</span>
+		<span class="c1">// Reset Table condition</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s1">'#filler'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'height'</span><span class="p">,</span>  <span class="s1">'0'</span><span class="p">);</span>
+		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">51</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mi">101</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+			<span class="nx">$</span><span class="p">(</span><span class="s1">'table tbody tr:nth-child('</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">')'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">get_data</span><span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<p><br />
+First we defined <code class="highlighter-rouge">timer</code> variable (Explanation on it’s way). Then we defined the on scroll listener for window.</p>
+
+<p>When the window goes beyond certain number of rows (threshold), we start timer for the <code class="highlighter-rouge">tableDrawVisible()</code> function. The on scroll event is very sensitive and is called even for 1 pixel change in scroll position. To limit number of calls to <code class="highlighter-rouge">tableDrawVisible()</code> function, we set a timer of 5 ms. So we are sure that the function is called at maximum every 5 ms. That will render pretty smooth.</p>
+
+<p>And when window is under threshold, we just set the table to the initial condition.</p>
+
+<p><br />
+That’s it, we are done…</p>
+
+<p><br />
+You can see the demo of the Infinite Scroll below. You can also take a look at the github code.</p>
+
+<p><br />
+<a href="https://hrily.github.io/InfiniteScrollDemo/">
+	<button class="btn pink waves-effect waves-light" name="action">View in Action
+		<i class="material-icons right">visibility</i>
+	</button>
+</a></p>
+
+<p><br />
+<a href="https://github.com/Hrily/InfiniteScrollDemo">
+	<button class="btn pink waves-effect waves-light" name="action">View on Github
+		<i class="material-icons right">send</i>
+	</button>
+</a></p>
+
+<p><br /></p>
+
+		</div>
+
+	</div>
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity .3s ease-in-out .3s;
+		   -moz-transition: opacity .3s ease-in-out .3s;
+				transition: opacity .3s ease-in-out .3s;
+	}
+
+	.loader-container {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		-webkit-transition: opacity .3s ease-in-out;
+		   -moz-transition: opacity .3s ease-in-out;
+				transition: opacity .3s ease-in-out;
+	}
+	
+	.loader-container .item {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+	}
+
+	.loader-container .item-1 {
+		background-color: black;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		animation: item-1_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-2 {
+		background-color: blue;
+		top: 0;
+		right: 0;
+		animation: item-2_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-3 {
+		background-color: black;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		animation: item-3_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-4 {
+		background-color: blue;
+		bottom: 0;
+		left: 0;
+		animation: item-4_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	@keyframes item-1_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(0, 100px)
+		}
+		50% {
+			transform: translate(100px, 100px)
+		}
+		75% {
+			transform: translate(100px, 0)
+		}
+	}
+
+	@keyframes item-2_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(-100px, 0)
+		}
+		50% {
+			transform: translate(-100px, 100px)
+		}
+		75% {
+			transform: translate(0, 100px)
+		}
+	}
+
+	@keyframes item-3_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(0, -100px)
+		}
+		50% {
+			transform: translate(-100px, -100px)
+		}
+		75% {
+			transform: translate(-100px, 0)
+		}
+	}
+
+	@keyframes item-4_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(100px, 0)
+		}
+		50% {
+			transform: translate(100px, -100px)
+		}
+		75% {
+			transform: translate(0, -100px)
+		}
+	}
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		setTimeout(() => {
+			let fadein = document.getElementsByClassName('fade-in');
+			let loader = document.getElementsByClassName('loader-container')[0];
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+				loader.style.opacity = 0;
+				setTimeout(() => {
+					loader.parentElement.removeChild(loader);
+				}, 400);
+			});
+		}, 3000);
+	}
+
+</script>
+
+<div class="loader-container">
+	<div class="item item-1"></div>
+	<div class="item item-2"></div>
+	<div class="item item-3"></div>
+	<div class="item item-4"></div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/src/css/home.css">
+
+<div class="fade-in menu sans">
+	<div class="links">
+		<a href="/">SHOWCASE</a>
+		<a href="/Resume">RESUME</a>
+		<a href="/Design">DESIGN</a>
+		<a href="/">ABOUT ME</a>
+	</div>
+</div>
+
+<div class="fade-in landing">
+	
+	<div class="menuicon" onclick="toggleMenu()">
+		<div class="line1"></div>
+		<div class="line2"></div>
+		<div class="line3"></div>
+	</div>
+	
+	<img class="landing-image" src="{{ site.baseurl }}/images/hrishi_drawing.png">
+
+	<div class="landing-text">
+		<div class="sub-heading serif">BLOG OF</div>
+		<div class="sans x-heading">
+			<span class="blue">Hrishikesh</span>Hiraskar
+		</div>
+		<div class="sub-heading serif">
+			The place where I write about my experiences on Programming, Web & App Dev, and Design.
+		</div>
+	</div>
+	
+	<i class="down material-icons heading blue" onclick="pageDown()">expand_more</i>
+
+</div>
+
+<div class="fade-in post-list" id="post-list">
+
+	<span id="post-list-anchor" style="dispay: none;"></span>
+
+	{% for post in site.posts %}
+		<div class="post-item" data-link="{{ site.baseurl }}{{ post.url }}" style="background-image: url({{ site.baseurl }}/images/backdrop/{{ post.backdrop }});" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">{{ post.title }}</div>
+					<div class="col-right serif">{{ post.content | strip_html | truncatewords:80 }}</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+</div>

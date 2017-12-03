@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+	</script>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity .3s ease-in-out .3s;
+		   -moz-transition: opacity .3s ease-in-out .3s;
+				transition: opacity .3s ease-in-out .3s;
+	}
+
+	.loader-container {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		-webkit-transition: opacity .3s ease-in-out;
+		   -moz-transition: opacity .3s ease-in-out;
+				transition: opacity .3s ease-in-out;
+	}
+	
+	.loader-container .item {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+	}
+
+	.loader-container .item-1 {
+		background-color: black;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		animation: item-1_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-2 {
+		background-color: blue;
+		top: 0;
+		right: 0;
+		animation: item-2_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-3 {
+		background-color: black;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		animation: item-3_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	.loader-container .item-4 {
+		background-color: blue;
+		bottom: 0;
+		left: 0;
+		animation: item-4_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+	}
+
+	@keyframes item-1_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(0, 100px)
+		}
+		50% {
+			transform: translate(100px, 100px)
+		}
+		75% {
+			transform: translate(100px, 0)
+		}
+	}
+
+	@keyframes item-2_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(-100px, 0)
+		}
+		50% {
+			transform: translate(-100px, 100px)
+		}
+		75% {
+			transform: translate(0, 100px)
+		}
+	}
+
+	@keyframes item-3_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(0, -100px)
+		}
+		50% {
+			transform: translate(-100px, -100px)
+		}
+		75% {
+			transform: translate(-100px, 0)
+		}
+	}
+
+	@keyframes item-4_move {
+		0%,
+		100% {
+			transform: translate(0, 0)
+		}
+		25% {
+			transform: translate(100px, 0)
+		}
+		50% {
+			transform: translate(100px, -100px)
+		}
+		75% {
+			transform: translate(0, -100px)
+		}
+	}
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		setTimeout(() => {
+			let fadein = document.getElementsByClassName('fade-in');
+			let loader = document.getElementsByClassName('loader-container')[0];
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+				loader.style.opacity = 0;
+				setTimeout(() => {
+					loader.parentElement.removeChild(loader);
+				}, 400);
+			});
+		}, 3000);
+	}
+
+</script>
+
+<div class="loader-container">
+	<div class="item item-1"></div>
+	<div class="item item-2"></div>
+	<div class="item item-3"></div>
+	<div class="item item-4"></div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/blog/src/css/home.css">
+
+<div class="fade-in menu sans">
+	<div class="links">
+		<a href="/">SHOWCASE</a>
+		<a href="/Resume">RESUME</a>
+		<a href="/Design">DESIGN</a>
+		<a href="/">ABOUT ME</a>
+	</div>
+</div>
+
+<div class="fade-in landing">
+	
+	<div class="menuicon" onclick="toggleMenu()">
+		<div class="line1"></div>
+		<div class="line2"></div>
+		<div class="line3"></div>
+	</div>
+	
+	<img class="landing-image" src="/blog/images/hrishi_drawing.png">
+
+	<div class="landing-text">
+		<div class="sub-heading serif">BLOG OF</div>
+		<div class="sans x-heading">
+			<span class="blue">Hrishikesh</span>Hiraskar
+		</div>
+		<div class="sub-heading serif">
+			The place where I write about my experiences on Programming, Web & App Dev, and Design.
+		</div>
+	</div>
+	
+	<i class="down material-icons heading blue" onclick="pageDown()">expand_more</i>
+
+</div>
+
+<div class="fade-in post-list" id="post-list">
+
+	<span id="post-list-anchor" style="dispay: none;"></span>
+
+	
+		<div class="post-item" data-link="/blog/2017/05/20/rendering-large-html-tables.html" style="background-image: url(/blog/images/backdrop/airport_schedule.jpg);" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">Render Large HTML Tables efficiently using Infinite Scrolling</div>
+					<div class="col-right serif">Hie Writing after a long time. I’m currently doing an internship along with my friend Salman, where I am creating a database web app to view datatables. One difficulty we faced was, sometimes the number of rows in the table went as high as 5000. So, if you render a html table with such high number of rows, it adds a lot of nodes into DOM tree. The result of this is the page becomes really slow and laggy. We...</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="post-item" data-link="/blog/2016/12/30/ar-tutorial-2.html" style="background-image: url(/blog/images/backdrop/ar.jpg);" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">Augmented Reality App in Android : Tutorial - Part 2</div>
+					<div class="col-right serif">Hie, Welcome to the Augmented Reality App in Android : Tutorial - Part 2. I hope you liked and understood the Part 1 of the tutorial. If you haven’t been to the it, please goto the Part 1. Go to Part 1 send In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it’s the implementation time. I hope you have familiarity with Android Studio as this Tutorial prerequisites it. If not, go ahead, learn...</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="post-item" data-link="/blog/2016/12/22/ar-tutorial-1.html" style="background-image: url(/blog/images/backdrop/ar.jpg);" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">Augmented Reality App in Android : Tutorial - Part 1</div>
+					<div class="col-right serif">Hie, We had Microsoft code.fun.do Hackathon in our third semester and I, along with my two friends Salman and Aiman, created a Location and Augmented Reality based app, which won us the Hackathon. Interestingly, I won the hackathon for second time :D, the first was in the first year. Implementing the Augmented Reality was the toughest part, had to search a lot and apply some of my own techniques to implement it. So, I’m writing this tutorial for the ones...</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="post-item" data-link="/blog/2016/12/17/material-ripple-transition.html" style="background-image: url(/blog/images/backdrop/material_design_paper.png);" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">Material Ripple Transition</div>
+					<div class="col-right serif">Hie, I love Material Design. It is the design language developed by Google which is based on principles of paper. The theme is flat, but real enough to visualize the depth. There are couple of libraries which can be used to make Material Style Web Pages. Google has it’s own Material Design Lite library. But I personally like Materialize CSS, for no specific reason. The only thing missing in these libraries is Animations. The animations in Material Design are more...</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="post-item" data-link="/blog/2016/12/17/first-blog.html" style="background-image: url(/blog/images/backdrop/jekyll.jpg);" onclick="open_post(event, this);">
+			<div class="post-item-background white">
+				<div class="row">
+					<div class="col-left heading sans">Jekyll is awesome!</div>
+					<div class="col-right serif">Hie, Just created my blog using Jekyll - the fast and minimilastic website generator. It’s really easy to implement and I really liked it. So, I’m dedicating my first blog to it. One of my friend suggested me about Jekyll when I told him about my plan to create a blog. Then I searched the web about it and started creating my blog. And in just few hours, my blog was ready! For those who are wondering how I created...</div>
+				</div>
+			</div>
+		</div>
+	
+
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>

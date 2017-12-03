@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Material Ripple Transition – Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+	</script>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+			});
+		}, 100);
+	}
+
+</script>
+
+<a class="fade-in back" href="javascript:history.back()">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post">
+	<div class="row">
+		
+		<div class="col-left sans">
+			<div class="heading black">Material Ripple Transition</div>
+			<div class="fade-in">
+				<br>
+				DECEMBER 17, 2016<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					
+						<a href="/blog/tags#HTML">
+							<div>HTML</div>
+						</a>
+					
+						<a href="/blog/tags#CSS">
+							<div>CSS</div>
+						</a>
+					
+						<a href="/blog/tags#JS">
+							<div>JS</div>
+						</a>
+					
+						<a href="/blog/tags#MATERIAL DESIGN">
+							<div>MATERIAL DESIGN</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading">Material Ripple Transition using CSS and JS</div>
+			<p>Hie,</p>
+
+<p>I love <a href="material.io">Material Design</a>. It is the design language developed by Google which is based on principles of paper. The theme is flat, but real enough to visualize the depth.</p>
+
+<p><br /></p>
+<p class="image"><img src="/blog/images/material_design_paper.png" /></p>
+
+<p><br />
+There are couple of libraries which can be used to make Material Style Web Pages. Google has it’s own <a href="getmdl.io">Material Design Lite</a> library. But I personally like <a href="materializecss.com">Materialize CSS</a>, for no specific reason.</p>
+
+<p><br />
+The only thing missing in these libraries is Animations. The animations in Material Design are more life-like. They start slow, speed up and decelerate gradually. The animation which I like the most is the Ripple Transition. Following are some examples:</p>
+
+<p><br /></p>
+
+<p align="center">
+	<p align="center" style="position: relative; display: inline-block; height: 400px; width: 49% !important; overflow: hidden;">
+		<img src="/blog/images/app_drawer_loop.gif" style="position: absolute; left: 50%; transform: translateX(-50%); height: 100% !important;" />
+	</p>
+	<p align="center" style="position: relative; display: inline-block; height: 400px; width: 50% !important;">
+		<img src="/blog/images/calling_loop.gif" style="position: absolute; left: 50%; transform: translateX(-50%); height: 100% !important;" />
+	</p>
+</p>
+
+<p><br />
+So, lets start making this using CSS and JS!</p>
+
+<p>If you look closely, the animation starts by circle popping at the point of touch. Then the circle expands and fills the whole container.</p>
+
+<p>We will simulate the same. First we will define a container, with some bounds. Lets call it <code class="highlighter-rouge">expandable-container</code>.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"expandable-container"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
+
+<p>Let’s define CSS for the <code class="highlighter-rouge">expandable-container</code></p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.expandable-container</span> <span class="p">{</span>
+	<span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+	<span class="nl">border-radius</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>I have kept the <code class="highlighter-rouge">position: relative</code> which I’ll expain later.</p>
+
+<p><br />
+Now, lets define the CSS for the circle which will pop out. We’ll call it <code class="highlighter-rouge">expandable</code></p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.expandable</span> <span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+	<span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+	<span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">middle</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+	<span class="nl">border-radius</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+	<span class="nl">-webkit-transition</span><span class="p">:</span> <span class="n">transform</span> <span class="m">.4s</span> <span class="n">ease-in-out</span><span class="p">;</span>
+	     <span class="nl">-o-transition</span><span class="p">:</span> <span class="n">transform</span> <span class="m">.4s</span> <span class="n">ease-in-out</span><span class="p">;</span>
+	        <span class="nl">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="m">.4s</span> <span class="n">ease-in-out</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br />
+Now, using JS, we’ll dynamically add a circle and expand it. Lets define a JS method to do this.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">expand_handler</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+	<span class="nx">expandable_container</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'expandable-container'</span><span class="p">))[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="s1">'&lt;div class="expandable"&gt;&lt;/div&gt;'</span><span class="p">;</span>
+	<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">overflow</span> <span class="o">=</span> <span class="s1">'hidden'</span><span class="p">;</span>
+	<span class="nx">expandable</span> <span class="o">=</span> <span class="p">(</span><span class="nx">expandable_container</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'expandable'</span><span class="p">))[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+	<span class="nx">x</span> <span class="o">-=</span> <span class="nx">expandable</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">offsetLeft</span><span class="p">;</span>
+	<span class="nx">y</span> <span class="o">-=</span> <span class="nx">expandable</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">offsetTop</span><span class="p">;</span>
+	<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">y</span><span class="o">-</span><span class="mi">25</span><span class="o">+</span><span class="s1">'px'</span><span class="p">;</span>
+	<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">x</span><span class="o">-</span><span class="mi">25</span><span class="o">+</span><span class="s1">'px'</span><span class="p">;</span>
+	<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">'scale(50)'</span><span class="p">;</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="s1">'#fff'</span>
+		<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">boxShadow</span> <span class="o">=</span> <span class="s1">'0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24)'</span><span class="p">;</span>
+		<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Let us understand what’s happening.</p>
+
+<p><br />
+First we added the circle to the container.</p>
+
+<p><code class="highlighter-rouge">expandable_container.body.innerHTML += '&lt;div class="expandable"&gt;&lt;/div&gt;';</code></p>
+
+<p><br />
+Then we applied <code class="highlighter-rouge">overflow: hidden</code> property to the container. Because, we want the circle to fill the container and not to cover it.</p>
+
+<p><br />
+Then we set the position of circle where the mouse click happened. <code class="highlighter-rouge">event.clientX</code> and <code class="highlighter-rouge">event.clientY</code> will give the coordinates of click event.</p>
+
+<p>Remember, we had kept <code class="highlighter-rouge">position: relative</code> for <code class="highlighter-rouge">expandable-container</code>, the reason is, we want the position of circle w.r.t. the expandable container. The quick hack to do this is to keep <code class="highlighter-rouge">position: relative</code> for parent element and to keep <code class="highlighter-rouge">position: absolute</code> for child.</p>
+
+<p>But there’s more to positioning, the positioning is done w.r.t. top left corner of the screen, but we are doing it w.r.t. top left corner of container. The coordinates we get from the click event are w.r.t. screen. To convert them w.r.t. container, we’ll subtract the left and top margins of the container.</p>
+
+<p><code class="highlighter-rouge">x -= expandable.parentElement.offsetLeft;</code></p>
+
+<p><code class="highlighter-rouge">y -= expandable.parentElement.offsetTop;</code></p>
+
+<p><br />
+Now we’ll apply the coordinates to circle using CSS <code class="highlighter-rouge">top</code> and <code class="highlighter-rouge">left</code> property. We’ll subtract <code class="highlighter-rouge">25</code> from each values because the circle is <code class="highlighter-rouge">50x50px</code>, so we’ll have the center of circle on click position.</p>
+
+<p><code class="highlighter-rouge">expandable.style.top = y-25+'px';</code></p>
+
+<p><code class="highlighter-rouge">expandable.style.left = x-25+'px';</code></p>
+
+<p><br />
+Now the real part, expanding the circle. Using CSS transform <code class="highlighter-rouge">scale()</code> method, we’ll expand the circle to fill the container.</p>
+
+<p><code class="highlighter-rouge">expandable.style.transform = 'scale(50)';</code></p>
+
+<p><br />
+That’s it, the animation is complete!</p>
+
+<p><br />
+There is some post-processing done after the animation is complete, like changing background color of container same as circle, removing circle out of view, etc.</p>
+
+<p>So, how to close the container. Pretty easy, just follow the steps for opening in reverse order. Following code snippet illustrates it:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">close</span><span class="p">(){</span>
+	<span class="nx">expandable_container</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'expandable-container'</span><span class="p">))[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="nx">expandable</span> <span class="o">=</span> <span class="p">(</span><span class="nx">expandable_container</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'expandable'</span><span class="p">))[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+	<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">boxShadow</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+	<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+	<span class="nx">expandable</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">'scale(1)'</span><span class="p">;</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="nx">expandable_container</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">expandable_container</span><span class="p">);</span>
+	<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">};</span></code></pre></figure>
+
+<p><br />
+That’s it, we’re done here!</p>
+
+<p><br />
+<a href="https://hrily.github.io/MaterialRippleTransition">
+	<button class="btn pink waves-effect waves-light" name="action">View in Action
+		<i class="material-icons right">visibility</i>
+	</button>
+</a></p>
+
+<p><br />
+<a href="https://github.com/Hrily/MaterialRippleTransition">
+	<button class="btn pink waves-effect waves-light" name="action">View on Github
+		<i class="material-icons right">send</i>
+	</button>
+</a></p>
+
+<p><br /></p>
+
+		</div>
+
+	</div>
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>

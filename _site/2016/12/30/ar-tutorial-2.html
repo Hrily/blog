@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Augmented Reality App in Android : Tutorial - Part 2 – Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+	</script>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+			});
+		}, 100);
+	}
+
+</script>
+
+<a class="fade-in back" href="javascript:history.back()">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post">
+	<div class="row">
+		
+		<div class="col-left sans">
+			<div class="heading black">Augmented Reality App in Android : Tutorial - Part 2</div>
+			<div class="fade-in">
+				<br>
+				DECEMBER 30, 2016<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					
+						<a href="/blog/tags#ANDROID">
+							<div>ANDROID</div>
+						</a>
+					
+						<a href="/blog/tags#AUGMENTED REALITY">
+							<div>AUGMENTED REALITY</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading">Make your own Location based Augmented Reality Android App</div>
+			<p>Hie,</p>
+
+<p>Welcome to the <strong>Augmented Reality App in Android : Tutorial - Part 2</strong>. I hope you liked and understood the Part 1 of the tutorial. If you haven’t been to the it, please goto the Part 1.</p>
+
+<p><br />
+<a href="https://hrily.github.io/blog/2016/12/22/ar-tutorial-1.html">
+	<button class="btn pink waves-effect waves-light" name="action">Go to Part 1
+		<i class="material-icons right">send</i>
+	</button>
+</a></p>
+
+<p><br />
+In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it’s the implementation time.</p>
+
+<p>I hope you have familiarity with Android Studio as this Tutorial prerequisites it. If not, go ahead, learn about it, and come back later for this Tutorial.</p>
+
+<p>I’ve priovided a starter pack for this Tutorial to give you a kickstart. Download or clone it from the repository. Then Open the project in Android Studio by navigating to it’s directory.</p>
+
+<p><br />
+<a href="https://github.com/Hrily/ARTutorial_Starter/archive/master.zip">
+	<button class="btn pink waves-effect waves-light" name="action">Download Starter Pack
+		<i class="material-icons right">file_download</i>
+	</button>
+</a></p>
+
+<p><br />
+-OR-</p>
+
+<p>Clone it</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">git clone https://github.com/Hrily/ARTutorial_Starter.git</code></pre></figure>
+
+<p>Now open <code class="highlighter-rouge">MainActivity.java</code> in your Android Studio editor, this is where we will be coding. It has following methods:</p>
+
+<ul>
+  <li><a href="#setaugmentedrealitypoint">setAugmentedRealityPoint</a></li>
+  <li><a href="#calculatetheoreticalazimuth"><strong>calculateTheoreticalAzimuth</strong></a></li>
+  <li><a href="#calculateazimuthaccuracy">calculateAzimuthAccuracy</a></li>
+  <li><a href="#isbetween"><strong>isBetween</strong></a></li>
+  <li><a href="#updatedescription">updateDescription</a></li>
+  <li><a href="#onlocationchanged">onLocationChanged</a></li>
+  <li><a href="#onazimuthchanged"><strong>onAzimuthChanged</strong></a></li>
+</ul>
+
+<p>The methods in bold are the ones which are needed to be completed. The others are helper methods which are already complete. Offcourse, there are some others methods too, which are responsible for setting up of Camera View and Sensor events. If you want to learn about it, head to the Android Developers site <a href="https://developer.android.com/guide/topics/media/camera.html">here</a> and <a href="https://developer.android.com/reference/android/hardware/SensorEvent.html">here</a>.</p>
+
+<p><a name="setaugmentedrealitypoint"></a></p>
+
+<h5 id="setaugmentedrealitypoint">setAugmentedRealityPoint</h5>
+
+<p>This function will set the POI.</p>
+
+<p><a name="calculatetheoreticalazimuth"></a></p>
+
+<h5 id="calculatetheoreticalazimuth">calculateTheoreticalAzimuth</h5>
+
+<p>This function will calculate the Azimuth angle(φ) for POI. From Part 1, we know that</p>
+
+<blockquote>
+  <p><em>tan(φ) = dy/dx</em></p>
+</blockquote>
+
+<p>So we will first calculate <code class="highlighter-rouge">dx</code> and <code class="highlighter-rouge">dy</code>, then <em>tan(φ)</em>, and then by applying <em>tan<sup>-1</sup></em> to <em>tan(φ)</em>, we will get φ and convert it from radians to degrees. But this φ always is between 0 and 90 as <em>tan<sup>-1</sup></em> is defined only in this range. But we have <code class="highlighter-rouge">dx</code> and <code class="highlighter-rouge">dy</code> which give us clear idea about the quadrant of POI. We will just check different conditions on <code class="highlighter-rouge">dx</code> and <code class="highlighter-rouge">dy</code> and get correct φ.</p>
+
+<p>Following code demonstrates it:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">double</span> <span class="nf">calculateTheoreticalAzimuth</span><span class="o">()</span> <span class="o">{</span>
+	<span class="c1">// Calculates azimuth angle (phi) of POI</span>
+	<span class="kt">double</span> <span class="n">dX</span> <span class="o">=</span> <span class="n">mPoi</span><span class="o">.</span><span class="na">getPoiLatitude</span><span class="o">()</span> <span class="o">-</span> <span class="n">mMyLatitude</span><span class="o">;</span>
+	<span class="kt">double</span> <span class="n">dY</span> <span class="o">=</span> <span class="n">mPoi</span><span class="o">.</span><span class="na">getPoiLongitude</span><span class="o">()</span> <span class="o">-</span> <span class="n">mMyLongitude</span><span class="o">;</span>
+
+	<span class="kt">double</span> <span class="n">phiAngle</span><span class="o">;</span>
+	<span class="kt">double</span> <span class="n">tanPhi</span><span class="o">;</span>
+
+	<span class="n">tanPhi</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">dY</span> <span class="o">/</span> <span class="n">dX</span><span class="o">);</span>
+	<span class="n">phiAngle</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">atan</span><span class="o">(</span><span class="n">tanPhi</span><span class="o">);</span>
+	<span class="n">phiAngle</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">toDegrees</span><span class="o">(</span><span class="n">phiAngle</span><span class="o">);</span>
+
+	<span class="c1">// phiAngle = [0,90], check quadrant and return correct phiAngle</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">dX</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dY</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// I quadrant</span>
+	    <span class="k">return</span> <span class="n">phiAngle</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">dX</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dY</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// II</span>
+	    <span class="k">return</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">phiAngle</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">dX</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dY</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// III</span>
+	    <span class="k">return</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">phiAngle</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">dX</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dY</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// IV</span>
+	    <span class="k">return</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">phiAngle</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="k">return</span> <span class="n">phiAngle</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><a name="calculateazimuthaccuracy"></a></p>
+
+<h5 id="calculateazimuthaccuracy">calculateAzimuthAccuracy</h5>
+
+<p>This function calculates the Camera View Sector of Device. It return minAngle and maxAngle of Camera View Sector.</p>
+
+<p><a name="isbetween"></a></p>
+
+<h5 id="isbetween">isBetween</h5>
+
+<p>This function checks if POI lies between the Camera View Sector. To do this, we just check if the azimuth angle is between the minAngle and maxAngle of the Camera View Sector. But this isn’t enough. Sometimes, minAngle is greater than maxAngle. In that case we just check if azimuth lies in 0 and maxAngle OR minAngle and 360.</p>
+
+<p>Following code illustrates above procedure:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isBetween</span><span class="o">(</span><span class="kt">double</span> <span class="n">minAngle</span><span class="o">,</span> <span class="kt">double</span> <span class="n">maxAngle</span><span class="o">,</span> <span class="kt">double</span> <span class="n">azimuth</span><span class="o">)</span> <span class="o">{</span>
+	<span class="c1">// Checks if the azimuth angle lies in minAngle and maxAngle of Camera View Sector</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">minAngle</span> <span class="o">&gt;</span> <span class="n">maxAngle</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">isBetween</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">maxAngle</span><span class="o">,</span> <span class="n">azimuth</span><span class="o">)</span> <span class="o">||</span> <span class="n">isBetween</span><span class="o">(</span><span class="n">minAngle</span><span class="o">,</span> <span class="mi">360</span><span class="o">,</span> <span class="n">azimuth</span><span class="o">))</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">azimuth</span> <span class="o">&gt;</span> <span class="n">minAngle</span> <span class="o">&amp;&amp;</span> <span class="n">azimuth</span> <span class="o">&lt;</span> <span class="n">maxAngle</span><span class="o">)</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><a name="updatedescription"></a></p>
+
+<h5 id="updatedescription">updateDescription</h5>
+
+<p>This function just updates the values shown in textbox. It is for testing function.</p>
+
+<p><a name="onlocationchanged"></a></p>
+
+<h5 id="onlocationchanged">onLocationChanged</h5>
+
+<p>This function takes care of the change in location of Device. It updates the location and recalculates the azimuth angle of POI.</p>
+
+<p><a name="onazimuthchanged"></a></p>
+
+<h5 id="onazimuthchanged">onAzimuthChanged</h5>
+
+<p>This function takes care of the change in azimuth angle of the device. This is the method where the real thing happens, i.e. to augment the POI. Here, we have the Device’s azimuth angle and the azimuth angle of the POI. First, we add 90° to azimuth angle of Device (Remember…), then we calculate the Camera View Sector. Then we check if POI lies in the Camera View Sector, if yes then we show pointer icon on the screen. In order to give the augmented feel, we place the pointer icon on screen proportional to where the POI is in the sector. This is done by calculating the ratio of difference of azimuth angle and minimum angle of sector to that of difference of minimum and maximum angle of sector. Then the top margin of pointer icon is set to product of ratio and screen height.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAzimuthChanged</span><span class="o">(</span><span class="kt">float</span> <span class="n">azimuthChangedFrom</span><span class="o">,</span> <span class="kt">float</span> <span class="n">azimuthChangedTo</span><span class="o">)</span> <span class="o">{</span>
+	<span class="c1">// Function to handle Change in azimuth angle</span>
+	<span class="n">mAzimuthReal</span> <span class="o">=</span> <span class="n">azimuthChangedTo</span><span class="o">;</span>
+	<span class="n">mAzimuthTheoretical</span> <span class="o">=</span> <span class="n">calculateTheoreticalAzimuth</span><span class="o">();</span>
+
+	<span class="c1">// Since Camera View is perpendicular to device plane</span>
+	<span class="n">mAzimuthReal</span> <span class="o">=</span> <span class="o">(</span><span class="n">mAzimuthReal</span><span class="o">+</span><span class="mi">90</span><span class="o">)%</span><span class="mi">360</span><span class="o">;</span>
+
+	<span class="n">pointerIcon</span> <span class="o">=</span> <span class="o">(</span><span class="n">ImageView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">icon</span><span class="o">);</span>
+
+	<span class="kt">double</span> <span class="n">minAngle</span> <span class="o">=</span> <span class="n">calculateAzimuthAccuracy</span><span class="o">(</span><span class="n">mAzimuthReal</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+	<span class="kt">double</span> <span class="n">maxAngle</span> <span class="o">=</span> <span class="n">calculateAzimuthAccuracy</span><span class="o">(</span><span class="n">mAzimuthReal</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+	<span class="k">if</span> <span class="o">(</span><span class="n">isBetween</span><span class="o">(</span><span class="n">minAngle</span><span class="o">,</span> <span class="n">maxAngle</span><span class="o">,</span> <span class="n">mAzimuthTheoretical</span><span class="o">))</span> <span class="o">{</span>
+		<span class="kt">float</span> <span class="n">ratio</span> <span class="o">=</span> <span class="o">((</span><span class="kt">float</span><span class="o">)</span> <span class="o">(</span><span class="n">mAzimuthTheoretical</span> <span class="o">-</span> <span class="n">minAngle</span> <span class="o">+</span> <span class="mf">360.0</span><span class="o">)</span> <span class="o">%</span> <span class="mi">360</span><span class="o">)</span>
+				<span class="o">/</span> <span class="o">((</span><span class="kt">float</span><span class="o">)</span> <span class="o">(</span><span class="n">maxAngle</span> <span class="o">-</span> <span class="n">minAngle</span> <span class="o">+</span> <span class="mf">360.0</span><span class="o">)</span> <span class="o">%</span> <span class="mi">360</span><span class="o">);</span>
+		<span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">lp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">(</span>
+				<span class="n">ViewGroup</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">,</span> 
+				<span class="n">ViewGroup</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">);</span>
+		<span class="n">lp</span><span class="o">.</span><span class="na">topMargin</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">display</span><span class="o">.</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">*</span> <span class="n">ratio</span><span class="o">);</span>
+		<span class="n">lp</span><span class="o">.</span><span class="na">leftMargin</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">pointerIcon</span><span class="o">.</span><span class="na">getWidth</span><span class="o">();</span>
+		<span class="n">pointerIcon</span><span class="o">.</span><span class="na">setLayoutParams</span><span class="o">(</span><span class="n">lp</span><span class="o">);</span>
+		<span class="n">pointerIcon</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">pointerIcon</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">GONE</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="n">updateDescription</span><span class="o">();</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>That’s it. Now you can build the app, deploy and test it on your device. In case you need the completed project, you can get it below.</p>
+
+<p><br />
+<a href="https://github.com/Hrily/ARTutorial">
+	<button class="btn pink waves-effect waves-light" name="action">View Full Project
+		<i class="material-icons right">send</i>
+	</button>
+</a></p>
+
+<p><br />
+<strong>Note:</strong> If the app says “Using Game Rotation Vector. Direction may not be accurate!”, then your device doesn’t have compass i.e. the device can’t locate North. The angle available in this case is not relative to North but somewhere else. More information <a href="https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector">here</a>.</p>
+
+		</div>
+
+	</div>
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>

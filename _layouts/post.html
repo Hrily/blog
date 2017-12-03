@@ -1,0 +1,166 @@
+---
+layout: default
+---
+
+<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimationFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+			});
+		}, 100);
+	}
+
+</script>
+
+<a class="fade-in back" href="javascript:history.back()">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post">
+	<div class="row">
+		
+		<div class="col-left sans">
+			<div class="heading black">{{ page.title }}</div>
+			<div class="fade-in">
+				<br>
+				{{ page.date | date: "%B %-d, %Y" | upcase }}<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					{% for atag in page.tags %}
+						<a href="{{ site.baseurl }}/tags#{{ atag | upcase }}">
+							<div>{{ atag | upcase }}</div>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading">{{ page.description }}</div>
+			{{ content }}
+		</div>
+
+	</div>
+</div>

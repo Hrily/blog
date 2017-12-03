@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="{{ site.baseurl }}/src/js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+	</script>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		{{ content }} 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>
