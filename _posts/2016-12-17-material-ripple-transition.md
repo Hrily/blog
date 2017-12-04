@@ -3,7 +3,7 @@ layout: post
 title: "Material Ripple Transition"
 description: "Material Ripple Transition using CSS and JS"
 tags: ["HTML", "CSS", "JS", "Material Design"]
-backdrop: material_design_paper.png
+backdrop: material_design_paper.jpg
 ---
 
 Hie,
@@ -11,7 +11,7 @@ Hie,
 I love [Material Design](material.io). It is the design language developed by Google which is based on principles of paper. The theme is flat, but real enough to visualize the depth.
 
 <br>
-<p class="image"><img src="{{ site.baseurl }}/images/material_design_paper.png"/></p>
+<p class="image"><img src="{{ site.baseurl }}/images/material_design_paper.jpg"/></p>
 
 <br>
 There are couple of libraries which can be used to make Material Style Web Pages. Google has it's own [Material Design Lite](getmdl.io) library. But I personally like [Materialize CSS](materializecss.com), for no specific reason.
