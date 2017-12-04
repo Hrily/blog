@@ -22,20 +22,20 @@ function open_post(event, target) {
 	clone.style.left = left + 'px';
 	clone.style.top = top + 'px';
 	clone.style.zIndex = 1000;
-	requestAnimationFrame( () => {
+	let text = clone.getElementsByClassName('col-right')[0];
+	let row = clone.getElementsByClassName('row')[0];
+	requestAnimFrame( () => {
 		clone.style.background = 'white';
 		clone.style.color = 'black';
-		clone.style.top = '0px';
+		clone.style.top = '0';
 		clone.style.height = '100%';
 		clone.style.paddingTop = '90px';
-		let text = clone.getElementsByClassName('col-right')[0];
 		text.innerHTML = "";
-		let row = clone.getElementsByClassName('row')[0];
 		row.style.minHeight = 0;
 		setTimeout( () => {
 			window.location = link;
 		}, 420);
-	});
+	} );
 }
 
 var isMenuVisible = false;
@@ -44,7 +44,7 @@ function toggleMenu() {
 	let menuIcon = document.getElementsByClassName('menuicon')[0];
 	let menu = document.getElementsByClassName('menu')[0];
 	let landingImage = document.getElementsByClassName('landing-image')[0];
-	requestAnimationFrame( () => {
+	requestAnimFrame( () => {
 		if(!isMenuVisible) {
 			menuIcon.className = "menuicon close";
 			menu.style.width = '100%';

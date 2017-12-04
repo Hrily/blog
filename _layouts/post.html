@@ -121,7 +121,7 @@ layout: default
 		readTime += images * 12 / 60;
 		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
 		setTimeout(() => {
-			requestAnimationFrame(() => {
+			requestAnimFrame(() => {
 				for (let i = 0; i < fadein.length; i++)
 					fadein[i].style.opacity = 1;
 			});

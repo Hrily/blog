@@ -3,7 +3,6 @@ body {
 	padding: 0;
 	text-align: center;
 	font-size: 1em;
-	background-color: #fdfdfd;
 }
 
 a {
@@ -45,14 +44,6 @@ a.sans {
 
 .x-heading {
 	font-size: 3.375em;
-}
-
-.sans {
-	font-family: 'Archivo Black', sans-serif;
-}
-
-.serif {
-	font-family: 'Vollkorn', serif;
 }
 
 .row {

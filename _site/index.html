@@ -25,7 +25,33 @@
 				onLoadPage();
 		}
 
+		// window.requestAnimationFrame = window.requestAnimationFrame
+		// 		|| window.mozRequestAnimationFrame
+		// 		|| window.webkitRequestAnimationFrame
+		// 		|| window.msRequestAnimationFrame
+		// 		|| function (f) { return setTimeout(f, 1000 / 60) };// simulate calling code 60 
+
+		window.requestAnimFrame = function () {
+			return (
+				function (/* function */ callback) {
+					window.setTimeout(callback, 1000 / 60);
+				}
+			);
+		}();
+
 	</script>
+
+	<style>
+	
+		.sans {
+			font-family: 'Archivo Black', sans-serif;
+		}
+
+		.serif {
+			font-family: 'Vollkorn', serif;
+		}
+
+	</style>
 
 </head>
 <body onload="init()">
@@ -162,7 +188,7 @@
 		setTimeout(() => {
 			let fadein = document.getElementsByClassName('fade-in');
 			let loader = document.getElementsByClassName('loader-container')[0];
-			requestAnimationFrame(() => {
+			requestAnimFrame(() => {
 				for (let i = 0; i < fadein.length; i++)
 					fadein[i].style.opacity = 1;
 				loader.style.opacity = 0;
@@ -170,7 +196,7 @@
 					loader.parentElement.removeChild(loader);
 				}, 400);
 			});
-		}, 3000);
+		}, 300);
 	}
 
 </script>

@@ -133,7 +133,7 @@ title: Home
 		setTimeout(() => {
 			let fadein = document.getElementsByClassName('fade-in');
 			let loader = document.getElementsByClassName('loader-container')[0];
-			requestAnimationFrame(() => {
+			requestAnimFrame(() => {
 				for (let i = 0; i < fadein.length; i++)
 					fadein[i].style.opacity = 1;
 				loader.style.opacity = 0;
@@ -141,7 +141,7 @@ title: Home
 					loader.parentElement.removeChild(loader);
 				}, 400);
 			});
-		}, 3000);
+		}, 300);
 	}
 
 </script>
