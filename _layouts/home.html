@@ -13,7 +13,7 @@ title: Home
 	}
 
 	.loader-container {
-		position: absolute;
+		position: fixed;
 		width: 100px;
 		height: 100px;
 		top: 0;
@@ -146,6 +146,8 @@ title: Home
 
 </script>
 
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/src/css/home.css">
+
 <div class="loader-container">
 	<div class="item item-1"></div>
 	<div class="item item-2"></div>
@@ -153,14 +155,12 @@ title: Home
 	<div class="item item-4"></div>
 </div>
 
-<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/src/css/home.css">
-
 <div class="fade-in menu sans">
 	<div class="links">
 		<a href="/">SHOWCASE</a>
 		<a href="/Resume">RESUME</a>
 		<a href="/Design">DESIGN</a>
-		<a href="/">ABOUT ME</a>
+		<a href="{{ site.baseurl }}/about">ABOUT ME</a>
 	</div>
 </div>
 
