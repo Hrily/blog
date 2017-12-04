@@ -8,7 +8,7 @@ title: About Me
 <style>
 
     .about {
-        box-sizing: bordre-box;
+        box-sizing: border-box;
         text-align: left;
         padding: 90px;
         min-height: 100%;
@@ -72,7 +72,7 @@ title: About Me
         <i class="material-icons blue sub-heading">arrow_back</i>
     </a>
 	
-	<img class="landing-image" src="{{ site.baseurl }}/images/hrishi_drawing.png">
+	<img class="landing-image" src="{{ site.baseurl }}/images/hrishi_drawing.svg">
 
 	<div class="about-text">
 		<div class="sans x-heading">
@@ -85,7 +85,7 @@ title: About Me
             <br>
             Feel free to contact me at:
             <br>
-            <a href="mailto:{{ site.email }}"><img src="{{ site.baseurl }}/images/email.svg"></a>
+            <a href="mailto:{{ site.email }}"><img src="{{ site.baseurl }}/images/email.svg" style="box-sizing: border-box; padding: 3px;"></a>
             <a href="{{ site.github }}"><img src="{{ site.baseurl }}/images/github.svg"></a>
             <a href="{{ site.facebook }}"><img src="{{ site.baseurl }}/images/facebook.svg"></a>
             <a href="{{ site.linkedin }}"><img src="{{ site.baseurl }}/images/linkedin.svg"></a>

@@ -21,14 +21,9 @@ The only thing missing in these libraries is Animations. The animations in Mater
 
 <br>
 
-<p align="center">
-	<p align="center" style="position: relative; display: inline-block; height: 400px; width: 49% !important; overflow: hidden;">
-		<img src="{{ site.baseurl }}/images/app_drawer_loop.gif" style="position: absolute; left: 50%; transform: translateX(-50%); height: 100% !important;">
-	</p>
-	<p align="center" style="position: relative; display: inline-block; height: 400px; width: 50% !important;">
-		<img  src="{{ site.baseurl }}/images/calling_loop.gif" style="position: absolute; left: 50%; transform: translateX(-50%); height: 100% !important;">
-	</p>
-</p>
+<p class="image"><img src="{{ site.baseurl }}/images/app_drawer_loop.gif"/></p>
+
+<p align="center" class="image"><img src="{{ site.baseurl }}/images/calling_loop.gif" style="width: 50%;"/></p>
 
 <br>
 So, lets start making this using CSS and JS! 
@@ -155,17 +150,7 @@ function close(){
 That's it, we're done here!
 
 <br>
-<a href="https://hrily.github.io/MaterialRippleTransition">
-	<button class="btn pink waves-effect waves-light" name="action">View in Action
-		<i class="material-icons right">visibility</i>
-	</button>
-</a>
+[View in Action](https://hrily.github.io/MaterialRippleTransition)
 
-<br>
-<a href="https://github.com/Hrily/MaterialRippleTransition">
-	<button class="btn pink waves-effect waves-light" name="action">View on Github
-		<i class="material-icons right">send</i>
-	</button>
-</a>
 
-<br>
+[View on Github](https://github.com/Hrily/MaterialRippleTransition)

@@ -153,17 +153,7 @@ That's it, we are done...
 You can see the demo of the Infinite Scroll below. You can also take a look at the github code.
 
 <br>
-<a href="https://hrily.github.io/InfiniteScrollDemo/">
-	<button class="btn pink waves-effect waves-light" name="action">View in Action
-		<i class="material-icons right">visibility</i>
-	</button>
-</a>
 
-<br>
-<a href="https://github.com/Hrily/InfiniteScrollDemo">
-	<button class="btn pink waves-effect waves-light" name="action">View on Github
-		<i class="material-icons right">send</i>
-	</button>
-</a>
+[View in Action](https://hrily.github.io/InfiniteScrollDemo/)
 
-<br>
+[View on Github](https://github.com/Hrily/InfiniteScrollDemo)

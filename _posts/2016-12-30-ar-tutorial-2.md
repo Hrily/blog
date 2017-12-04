@@ -10,12 +10,7 @@ Hie,
 
 Welcome to the **Augmented Reality App in Android : Tutorial - Part 2**. I hope you liked and understood the Part 1 of the tutorial. If you haven't been to the it, please goto the Part 1.
 
-<br>
-<a href="https://hrily.github.io/blog/2016/12/22/ar-tutorial-1.html">
-	<button class="btn pink waves-effect waves-light" name="action">Go to Part 1
-		<i class="material-icons right">send</i>
-	</button>
-</a>
+[Go to Part 1](https://hrily.github.io/blog/2016/12/22/ar-tutorial-1.html)
 
 <br>
 In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it's the implementation time.
@@ -24,12 +19,7 @@ I hope you have familiarity with Android Studio as this Tutorial prerequisites i
 
 I've priovided a starter pack for this Tutorial to give you a kickstart. Download or clone it from the repository. Then Open the project in Android Studio by navigating to it's directory.
 
-<br>
-<a href="https://github.com/Hrily/ARTutorial_Starter/archive/master.zip">
-	<button class="btn pink waves-effect waves-light" name="action">Download Starter Pack
-		<i class="material-icons right">file_download</i>
-	</button>
-</a>
+[Download Starter Pack](https://github.com/Hrily/ARTutorial_Starter/archive/master.zip)
 
 <br>
 -OR-
@@ -54,13 +44,13 @@ The methods in bold are the ones which are needed to be completed. The others ar
 
 <a name="setaugmentedrealitypoint"/>
 
-##### setAugmentedRealityPoint
+### setAugmentedRealityPoint
 
 This function will set the POI.
 
 <a name="calculatetheoreticalazimuth"/>
 
-##### calculateTheoreticalAzimuth
+### calculateTheoreticalAzimuth
 
 This function will calculate the Azimuth angle(&phi;) for POI. From Part 1, we know that
 
@@ -176,12 +166,7 @@ public void onAzimuthChanged(float azimuthChangedFrom, float azimuthChangedTo) {
 
 That's it. Now you can build the app, deploy and test it on your device. In case you need the completed project, you can get it below.
 
-<br>
-<a href="https://github.com/Hrily/ARTutorial">
-	<button class="btn pink waves-effect waves-light" name="action">View Full Project
-		<i class="material-icons right">send</i>
-	</button>
-</a>
+[View Full Project](https://github.com/Hrily/ARTutorial)
 
 <br>
 **Note:** If the app says "Using Game Rotation Vector. Direction may not be accurate!", then your device doesn't have compass i.e. the device can't locate North. The angle available in this case is not relative to North but somewhere else. More information [here](https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector).
