@@ -45,6 +45,7 @@ title: Tags
 		padding: 8px 16px 8px 16px;
 		margin-top: 48px;
 		border: 2px solid blue;
+		font-weight: 500;
   }
   
   .tags .post {
@@ -75,7 +76,7 @@ title: Tags
     {% assign t = tag | first %}
     {% assign posts = tag | last %}
     <div class="tag-post-list" id="{{ t | upcase }}">
-    <a class="tag blue" href="#{{ t | upcase }}">{{ t | upcase }}</a><br>
+    <a class="tag blue sans" href="#{{ t | upcase }}">{{ t | upcase }}</a><br>
     {% for post in posts %}
       {% if post.tags contains t %}
         <a class="post serif black" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><br>
