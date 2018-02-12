@@ -15,6 +15,16 @@
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112774988-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-112774988-1');
+	</script>
 
 	<script type="text/javascript">
 	
@@ -109,6 +119,7 @@
 		padding: 8px 16px 8px 16px;
 		margin-top: 8px;
 		border: 2px solid blue;
+		font-weight: 500;
 	}
 
 	.post .tags a div {
@@ -151,6 +162,20 @@
 		        transition: opacity 0.3s ease-in-out;
 	}
 
+	#dummyLeftCol {
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	.hover-effect {
+		opacity: 0.3;
+	}
+
+	.hover-effect:hover {
+		opacity: 1;
+	}
+
 	@media only screen and (max-width: 1120px){
 		
 		.post {
@@ -168,6 +193,8 @@
 
 <script type="text/javascript">
 
+	var lastScrollTop = 0;
+
 	onLoadPage = () => {
 		let fadein = document.getElementsByClassName('fade-in');
 		let text = document.getElementsByClassName('col-right')[0];
@@ -180,8 +207,35 @@
 			requestAnimFrame(() => {
 				for (let i = 0; i < fadein.length; i++)
 					fadein[i].style.opacity = 1;
+				console.log(document.body.offsetWidth);
+				if (document.body.offsetWidth > 1120) {
+					detachLeftCol();
+					window.onscroll = () => {
+						var st = window.pageYOffset || document.documentElement.scrollTop;
+						if (st > lastScrollTop)
+							document.getElementById('dummyLeftCol').className = 'col-left sans hover-effect'
+						else
+							document.getElementById('dummyLeftCol').className = 'col-left sans';
+						lastScrollTop = st;
+					}
+				}
 			});
 		}, 100);
+	}
+
+	function detachLeftCol() {
+		let leftCol = document.getElementById('leftCol');
+		let dummyLeftCol = leftCol.cloneNode(true);
+		dummyLeftCol.id = 'dummyLeftCol';
+		dummyLeftCol.style.position = 'fixed';
+		dummyLeftCol.style.top = leftCol.offsetTop + 'px';
+		dummyLeftCol.style.left = leftCol.offsetLeft + 'px';
+		dummyLeftCol.style.width = leftCol.offsetWidth + 'px';
+		dummyLeftCol.style.height = leftCol.offsetHeight + 'px';
+		requestAnimFrame(() => {
+			document.getElementById('post').appendChild(dummyLeftCol);
+			leftCol.style.visibility = 'hidden';
+		});
 	}
 
 </script>
@@ -192,10 +246,10 @@
 
 <div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
 
-<div class="post">
+<div class="post" id="post">
 	<div class="row">
 		
-		<div class="col-left sans">
+		<div class="col-left sans" id="leftCol">
 			<div class="heading black">Material Ripple Transition</div>
 			<div class="fade-in">
 				<br>

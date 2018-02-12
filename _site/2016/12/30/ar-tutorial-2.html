@@ -15,6 +15,16 @@
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112774988-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-112774988-1');
+	</script>
 
 	<script type="text/javascript">
 	
@@ -109,6 +119,7 @@
 		padding: 8px 16px 8px 16px;
 		margin-top: 8px;
 		border: 2px solid blue;
+		font-weight: 500;
 	}
 
 	.post .tags a div {
@@ -151,6 +162,20 @@
 		        transition: opacity 0.3s ease-in-out;
 	}
 
+	#dummyLeftCol {
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	.hover-effect {
+		opacity: 0.3;
+	}
+
+	.hover-effect:hover {
+		opacity: 1;
+	}
+
 	@media only screen and (max-width: 1120px){
 		
 		.post {
@@ -168,6 +193,8 @@
 
 <script type="text/javascript">
 
+	var lastScrollTop = 0;
+
 	onLoadPage = () => {
 		let fadein = document.getElementsByClassName('fade-in');
 		let text = document.getElementsByClassName('col-right')[0];
@@ -180,8 +207,35 @@
 			requestAnimFrame(() => {
 				for (let i = 0; i < fadein.length; i++)
 					fadein[i].style.opacity = 1;
+				console.log(document.body.offsetWidth);
+				if (document.body.offsetWidth > 1120) {
+					detachLeftCol();
+					window.onscroll = () => {
+						var st = window.pageYOffset || document.documentElement.scrollTop;
+						if (st > lastScrollTop)
+							document.getElementById('dummyLeftCol').className = 'col-left sans hover-effect'
+						else
+							document.getElementById('dummyLeftCol').className = 'col-left sans';
+						lastScrollTop = st;
+					}
+				}
 			});
 		}, 100);
+	}
+
+	function detachLeftCol() {
+		let leftCol = document.getElementById('leftCol');
+		let dummyLeftCol = leftCol.cloneNode(true);
+		dummyLeftCol.id = 'dummyLeftCol';
+		dummyLeftCol.style.position = 'fixed';
+		dummyLeftCol.style.top = leftCol.offsetTop + 'px';
+		dummyLeftCol.style.left = leftCol.offsetLeft + 'px';
+		dummyLeftCol.style.width = leftCol.offsetWidth + 'px';
+		dummyLeftCol.style.height = leftCol.offsetHeight + 'px';
+		requestAnimFrame(() => {
+			document.getElementById('post').appendChild(dummyLeftCol);
+			leftCol.style.visibility = 'hidden';
+		});
 	}
 
 </script>
@@ -192,10 +246,10 @@
 
 <div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
 
-<div class="post">
+<div class="post" id="post">
 	<div class="row">
 		
-		<div class="col-left sans">
+		<div class="col-left sans" id="leftCol">
 			<div class="heading black">Augmented Reality App in Android : Tutorial - Part 2</div>
 			<div class="fade-in">
 				<br>
@@ -303,13 +357,13 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 
 <p><a name="calculateazimuthaccuracy"></a></p>
 
-<h5 id="calculateazimuthaccuracy">calculateAzimuthAccuracy</h5>
+<h3 id="calculateazimuthaccuracy">calculateAzimuthAccuracy</h3>
 
 <p>This function calculates the Camera View Sector of Device. It return minAngle and maxAngle of Camera View Sector.</p>
 
 <p><a name="isbetween"></a></p>
 
-<h5 id="isbetween">isBetween</h5>
+<h3 id="isbetween">isBetween</h3>
 
 <p>This function checks if POI lies between the Camera View Sector. To do this, we just check if the azimuth angle is between the minAngle and maxAngle of the Camera View Sector. But this isn’t enough. Sometimes, minAngle is greater than maxAngle. In that case we just check if azimuth lies in 0 and maxAngle OR minAngle and 360.</p>
 
@@ -327,19 +381,19 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 
 <p><a name="updatedescription"></a></p>
 
-<h5 id="updatedescription">updateDescription</h5>
+<h3 id="updatedescription">updateDescription</h3>
 
 <p>This function just updates the values shown in textbox. It is for testing function.</p>
 
 <p><a name="onlocationchanged"></a></p>
 
-<h5 id="onlocationchanged">onLocationChanged</h5>
+<h3 id="onlocationchanged">onLocationChanged</h3>
 
 <p>This function takes care of the change in location of Device. It updates the location and recalculates the azimuth angle of POI.</p>
 
 <p><a name="onazimuthchanged"></a></p>
 
-<h5 id="onazimuthchanged">onAzimuthChanged</h5>
+<h3 id="onazimuthchanged">onAzimuthChanged</h3>
 
 <p>This function takes care of the change in azimuth angle of the device. This is the method where the real thing happens, i.e. to augment the POI. Here, we have the Device’s azimuth angle and the azimuth angle of the POI. First, we add 90° to azimuth angle of Device (Remember…), then we calculate the Camera View Sector. Then we check if POI lies in the Camera View Sector, if yes then we show pointer icon on the screen. In order to give the augmented feel, we place the pointer icon on screen proportional to where the POI is in the sector. This is done by calculating the ratio of difference of azimuth angle and minimum angle of sector to that of difference of minimum and maximum angle of sector. Then the top margin of pointer icon is set to product of ratio and screen height.</p>
 

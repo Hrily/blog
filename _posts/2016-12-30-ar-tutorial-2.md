@@ -90,13 +90,13 @@ public double calculateTheoreticalAzimuth() {
 
 <a name="calculateazimuthaccuracy"/>
 
-##### calculateAzimuthAccuracy
+### calculateAzimuthAccuracy
 
 This function calculates the Camera View Sector of Device. It return minAngle and maxAngle of Camera View Sector.
 
 <a name="isbetween"/>
 
-##### isBetween
+### isBetween
 
 This function checks if POI lies between the Camera View Sector. To do this, we just check if the azimuth angle is between the minAngle and maxAngle of the Camera View Sector. But this isn't enough. Sometimes, minAngle is greater than maxAngle. In that case we just check if azimuth lies in 0 and maxAngle OR minAngle and 360.
 
@@ -116,19 +116,19 @@ Following code illustrates above procedure:
 
 <a name="updatedescription"/>
 
-##### updateDescription
+### updateDescription
 
 This function just updates the values shown in textbox. It is for testing function.
 
 <a name="onlocationchanged"/>
 
-##### onLocationChanged
+### onLocationChanged
 
 This function takes care of the change in location of Device. It updates the location and recalculates the azimuth angle of POI.
 
 <a name="onazimuthchanged"/>
 
-##### onAzimuthChanged
+### onAzimuthChanged
 
 This function takes care of the change in azimuth angle of the device. This is the method where the real thing happens, i.e. to augment the POI. Here, we have the Device's azimuth angle and the azimuth angle of the POI. First, we add 90&deg; to azimuth angle of Device (Remember...), then we calculate the Camera View Sector. Then we check if POI lies in the Camera View Sector, if yes then we show pointer icon on the screen. In order to give the augmented feel, we place the pointer icon on screen proportional to where the POI is in the sector. This is done by calculating the ratio of difference of azimuth angle and minimum angle of sector to that of difference of minimum and maximum angle of sector. Then the top margin of pointer icon is set to product of ratio and screen height.
 

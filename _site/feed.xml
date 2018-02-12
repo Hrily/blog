@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2017-12-23T12:18:41+05:30</updated><id>http://0.0.0.0:4000/blog//</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2018-02-12T20:17:48+05:30</updated><id>http://0.0.0.0:4000/blog//</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
 </subtitle><entry><title type="html">Render Large HTML Tables efficiently using Infinite Scrolling</title><link href="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html" rel="alternate" type="text/html" title="Render Large HTML Tables efficiently using Infinite Scrolling" /><published>2017-05-20T00:00:00+05:30</published><updated>2017-05-20T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html">&lt;p&gt;Hie&lt;/p&gt;
 
 &lt;p&gt;Writing after a long time. I’m currently doing an internship along with my friend Salman, where I am creating a database web app to view datatables.&lt;/p&gt;
@@ -227,13 +227,13 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 
 &lt;p&gt;&lt;a name=&quot;calculateazimuthaccuracy&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;calculateazimuthaccuracy&quot;&gt;calculateAzimuthAccuracy&lt;/h5&gt;
+&lt;h3 id=&quot;calculateazimuthaccuracy&quot;&gt;calculateAzimuthAccuracy&lt;/h3&gt;
 
 &lt;p&gt;This function calculates the Camera View Sector of Device. It return minAngle and maxAngle of Camera View Sector.&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;isbetween&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;isbetween&quot;&gt;isBetween&lt;/h5&gt;
+&lt;h3 id=&quot;isbetween&quot;&gt;isBetween&lt;/h3&gt;
 
 &lt;p&gt;This function checks if POI lies between the Camera View Sector. To do this, we just check if the azimuth angle is between the minAngle and maxAngle of the Camera View Sector. But this isn’t enough. Sometimes, minAngle is greater than maxAngle. In that case we just check if azimuth lies in 0 and maxAngle OR minAngle and 360.&lt;/p&gt;
 
@@ -251,19 +251,19 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 
 &lt;p&gt;&lt;a name=&quot;updatedescription&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;updatedescription&quot;&gt;updateDescription&lt;/h5&gt;
+&lt;h3 id=&quot;updatedescription&quot;&gt;updateDescription&lt;/h3&gt;
 
 &lt;p&gt;This function just updates the values shown in textbox. It is for testing function.&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;onlocationchanged&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;onlocationchanged&quot;&gt;onLocationChanged&lt;/h5&gt;
+&lt;h3 id=&quot;onlocationchanged&quot;&gt;onLocationChanged&lt;/h3&gt;
 
 &lt;p&gt;This function takes care of the change in location of Device. It updates the location and recalculates the azimuth angle of POI.&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;onazimuthchanged&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;onazimuthchanged&quot;&gt;onAzimuthChanged&lt;/h5&gt;
+&lt;h3 id=&quot;onazimuthchanged&quot;&gt;onAzimuthChanged&lt;/h3&gt;
 
 &lt;p&gt;This function takes care of the change in azimuth angle of the device. This is the method where the real thing happens, i.e. to augment the POI. Here, we have the Device’s azimuth angle and the azimuth angle of the POI. First, we add 90° to azimuth angle of Device (Remember…), then we calculate the Camera View Sector. Then we check if POI lies in the Camera View Sector, if yes then we show pointer icon on the screen. In order to give the augmented feel, we place the pointer icon on screen proportional to where the POI is in the sector. This is done by calculating the ratio of difference of azimuth angle and minimum angle of sector to that of difference of minimum and maximum angle of sector. Then the top margin of pointer icon is set to product of ratio and screen height.&lt;/p&gt;
 
