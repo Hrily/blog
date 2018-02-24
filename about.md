@@ -15,11 +15,8 @@ title: About Me
     }
 
     .about .sub-heading {
+        margin-top: 24px;
         max-width: 600px;
-    }
-
-    .about-text {
-        margin-top: 80px;
     }
 
     .about-text img {
@@ -42,7 +39,11 @@ title: About Me
 
 	.back:hover > i {
 		background-color: rgba(0, 0, 255, 0.1);
-	}
+    }
+    
+    .contact {
+        margin: 8px;
+    }
 
     @media only screen and (max-width: 1120px){
 
@@ -74,21 +75,22 @@ title: About Me
 	
 	<img class="landing-image" src="{{ site.baseurl }}/images/hrishi_drawing.svg">
 
-	<div class="about-text">
+	<div class="about-text landing-text">
 		<div class="sans x-heading">
 			<span class="blue">Hrishikesh</span>Hiraskar
 		</div>
 		<div class="sub-heading serif">
 			{{ site.description }}
 		</div>
-        <div class="serif">
+        <div class="serif contact">
             <br>
             Feel free to contact me at:
             <br>
             <a href="mailto:{{ site.email }}"><img src="{{ site.baseurl }}/images/email.svg" style="box-sizing: border-box; padding: 3px;"></a>
-            <a href="{{ site.github }}"><img src="{{ site.baseurl }}/images/github.svg"></a>
-            <a href="{{ site.facebook }}"><img src="{{ site.baseurl }}/images/facebook.svg"></a>
-            <a href="{{ site.linkedin }}"><img src="{{ site.baseurl }}/images/linkedin.svg"></a>
+            <a href="{{ site.github }}" target="_blank"><img src="{{ site.baseurl }}/images/github.svg"></a>
+            <a href="{{ site.facebook }}" target="_blank"><img src="{{ site.baseurl }}/images/facebook.svg"></a>
+            <a href="{{ site.linkedin }}" target="_blank"><img src="{{ site.baseurl }}/images/linkedin.svg"></a>
+            <a href="{{ site.dribbble }}" target="_blank"><img src="{{ site.baseurl }}/images/dribbble.svg"></a>
             <br>
             Or go check out my <a href="/Resume">Resume</a>
         </div>
