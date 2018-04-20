@@ -223,6 +223,8 @@
 				}
 			});
 		}, 100);
+
+		document.getElementById('fb-comments').setAttribute('data-href', window.location);
 	}
 
 	function detachLeftCol() {
@@ -304,7 +306,7 @@ Search around for more, there are lot of sites to help.</p>
 				}(document, 'script', 'facebook-jssdk'));</script>
 			<br>
 			<div><h2>Comments</h2></div>
-			<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
+			<div id="fb-comments" class="fb-comments" data-numposts="3"></div>
 		</div>
 
 	</div>
