@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resources on Linux TCP Implementation – Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<meta property="fb:app_id" content="170147553648927" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112774988-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-112774988-1');
+	</script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+		// window.requestAnimationFrame = window.requestAnimationFrame
+		// 		|| window.mozRequestAnimationFrame
+		// 		|| window.webkitRequestAnimationFrame
+		// 		|| window.msRequestAnimationFrame
+		// 		|| function (f) { return setTimeout(f, 1000 / 60) };// simulate calling code 60 
+
+		window.requestAnimFrame = function () {
+			return (
+				function (/* function */ callback) {
+					window.setTimeout(callback, 1000 / 60);
+				}
+			);
+		}();
+
+	</script>
+
+	<style>
+	
+		.sans {
+			font-family: 'Archivo Black', sans-serif;
+		}
+
+		.serif {
+			font-family: 'Vollkorn', serif;
+		}
+
+	</style>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+		font-weight: 500;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	#dummyLeftCol {
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	.hover-effect {
+		opacity: 0.3;
+	}
+
+	.hover-effect:hover {
+		opacity: 1;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	var lastScrollTop = 0;
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+				console.log(document.body.offsetWidth);
+				if (document.body.offsetWidth > 1120) {
+					detachLeftCol();
+					window.onscroll = () => {
+						var st = window.pageYOffset || document.documentElement.scrollTop;
+						if (st > lastScrollTop)
+							document.getElementById('dummyLeftCol').className = 'col-left sans hover-effect'
+						else
+							document.getElementById('dummyLeftCol').className = 'col-left sans';
+						lastScrollTop = st;
+					}
+				}
+			});
+		}, 100);
+
+		document.getElementById('fb-comments').setAttribute('data-href', window.location);
+	}
+
+	function detachLeftCol() {
+		let leftCol = document.getElementById('leftCol');
+		let dummyLeftCol = leftCol.cloneNode(true);
+		dummyLeftCol.id = 'dummyLeftCol';
+		dummyLeftCol.style.position = 'fixed';
+		dummyLeftCol.style.top = leftCol.offsetTop + 'px';
+		dummyLeftCol.style.left = leftCol.offsetLeft + 'px';
+		dummyLeftCol.style.width = leftCol.offsetWidth + 'px';
+		dummyLeftCol.style.height = leftCol.offsetHeight + 'px';
+		requestAnimFrame(() => {
+			document.getElementById('post').appendChild(dummyLeftCol);
+			leftCol.style.visibility = 'hidden';
+		});
+	}
+
+</script>
+
+<a class="fade-in back" href="/blog/">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post" id="post">
+	<div class="row">
+		
+		<div class="col-left sans" id="leftCol">
+			<div class="heading black">Resources on Linux TCP Implementation</div>
+			<div class="fade-in">
+				<br>
+				APRIL 23, 2018<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					
+						<a href="/blog/tags#NETWORKS">
+							<div>NETWORKS</div>
+						</a>
+					
+						<a href="/blog/tags#LINUX">
+							<div>LINUX</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading"><b>My compilation for various resources which I found</b></div>
+			<p>Hie</p>
+
+<p>This semester I did my Advanced Computer Networks project on Linux TCP.  It was implementing TDCTCP in Linux Kernel.  There wasn’t any great outcome of this project output wise, which I’m sad of.  But the good news that this project taught a great deal about the workings of TCP in Linux.  So, I thought I’ll compile the resources I used as reference so that it will be useful for me in future or for someone else.</p>
+
+<h2 id="the-source">The Source</h2>
+
+<p>While getting to know the Linux TCP, I always had to open up the code and read it in order to understand.  The <strong>Elixir Cross Referencer</strong> is a great tool for this.  It has built in search for identifier, so every definition is just a click away.  So here is the first resource:</p>
+
+<blockquote>
+  <p><a href="https://elixir.bootlin.com/linux/latest/source">Elixir Cross Referencer</a></p>
+</blockquote>
+
+<blockquote>
+  <p>May the source be with you.</p>
+</blockquote>
+
+<h2 id="tcp-internels">TCP Internels</h2>
+
+<p>In order to implement a TCP, there are few basic functions that we can plug in to the TCP structure.  For example, what should our TCP do when there is an acknowledgement packet, or a packet loss.  These <em>plug and play</em> functions are properly explained in the next resource and also when these functions are called.</p>
+
+<blockquote>
+  <p><a href="http://www.yonch.com/tech/linux-tcp-congestion-control-internals">Linux TCP Congestion Control Internals</a></p>
+</blockquote>
+
+<h2 id="tcp-mini-tutorial">TCP Mini Tutorial</h2>
+
+<p>Along with functions, TCP also has some variables which are used now and then.  The next resource has explanation to the data structures used in TCP, it also has some information on the previously discussed function.</p>
+
+<blockquote>
+  <p><a href="http://netlab.caltech.edu/projects/ns2tcplinux/ns2linux/tutorial/index.html">TCP Mini Tutorial</a></p>
+</blockquote>
+
+<h2 id="linux-tcp-implementation-book">Linux TCP Implementation Book</h2>
+
+<p>This is the best resource I’ve found for Linux TCP.  I would recommend this if you wan’t to start with Linux TCP.  This book contains explanation for each and every part of TCP.  It also has some imformation on Linux kernel level basics.  The best thing of this book is, it provides code snippets along with the explanation.  I’ve given direct link to <em>PDF</em>.</p>
+
+<blockquote>
+  <p><a href="http://pdf.th7.cn/down/files/1312/tcpip_architecture_design_and_implementation_in_linux.pdf">TCP/IP Design, Architecture and Implementation in Linux</a></p>
+</blockquote>
+
+<p>I hope you find this compilation useful.  If you wan’t me to add something to this compilation, please feel free to message or comment.</p>
+
+
+			<!-- Facebook Comments -->
+			<div id="fb-root"></div>
+			<script>(function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=170147553648927&autoLogAppEvents=1';
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+			<br>
+			<div><h2>Comments</h2></div>
+			<div id="fb-comments" class="fb-comments" data-numposts="3"></div>
+		</div>
+
+	</div>
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/blog/about">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017-18 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>
