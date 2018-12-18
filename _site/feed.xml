@@ -1,5 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2018-08-06T12:13:35+05:30</updated><id>http://0.0.0.0:4000/blog//</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
-</subtitle><entry><title type="html">Resources on Linux TCP Implementation</title><link href="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html" rel="alternate" type="text/html" title="Resources on Linux TCP Implementation" /><published>2018-04-23T00:00:00+05:30</published><updated>2018-04-23T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/04/23/linux-tcp</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html">&lt;p&gt;Hie&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2018-12-18T13:07:21+05:30</updated><id>http://0.0.0.0:4000/blog//</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
+</subtitle><entry><title type="html">My GSoC 2018 Experience</title><link href="http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience.html" rel="alternate" type="text/html" title="My GSoC 2018 Experience" /><published>2018-12-18T00:00:00+05:30</published><updated>2018-12-18T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience.html">&lt;p&gt;&lt;em&gt;April 23, 2018&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Senior: Congrats, Bro!!!&lt;br /&gt;
+Me: (Umm… What did I do now?) Why?&lt;br /&gt;
+Senior: You are accepted to GSoC!&lt;br /&gt;
+Me: (Surprised) Really?&lt;br /&gt;
+Senior: Ha be! Check the list. Salman also got accepted. Come near SBI. We’re waiting for you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This was conversation between me and my senior &lt;a href=&quot;https://github.com/mohitreddy1996&quot;&gt;Mohit Reddy&lt;/a&gt;. I hurriedly opened the accepted student list. I was blown. I got accepted to GSoC by Haiku!!! One of my dream finally came true!&lt;/p&gt;
+
+&lt;p&gt;And a cherry on the cake, my best friend &lt;a href=&quot;https://github.com/salman-bhai/&quot;&gt;Salman Shah&lt;/a&gt; also got accepted by Internet Archive.&lt;/p&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;It’s been four months since I completed my GSoC project. Many juniors come to me asking my experience in GSoC and what I did to get accepted to it. So, here’s everything about my experience in GSoC.&lt;/p&gt;
+
+&lt;h1 id=&quot;finding-an-organization&quot;&gt;Finding an Organization&lt;/h1&gt;
+
+&lt;p&gt;First thing to do is finding an organization which has good probability of getting into GSoC. You can check previous years organizations list. Generally, the organizations selected in last couple of years have a good &lt;strong&gt;chance&lt;/strong&gt; of getting the following year. Also check if the organization is planning to apply for GSoC.&lt;/p&gt;
+
+&lt;p&gt;I started looking for organizations in December 2017. The early the better. Around that time, I was really interested in Operating Systems. So, I started looking for orgs(organizations) which worked on OS. Mohit Reddy had given us a list of organizations which he found good. The list had ReactOS and Haiku. I had heard of ReactOS, so I looked upon their repository. But I found the code base a little hard for me. Then I moved to Haiku. It’s an operating system based on BeOS of 90s. I found the codebase easy to understand due to C++ as their primary language.&lt;/p&gt;
+
+&lt;h1 id=&quot;getting-my-first-patch&quot;&gt;Getting my first patch&lt;/h1&gt;
+
+&lt;p&gt;Next thing to do is getting a patch in the org repository. Some orgs have this as requirement for application. But this is really important as this exposes your work to the community, and they get to know you.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, Haiku had a list of &lt;a href=&quot;https://dev.haiku-os.org/wiki/EasyTasks&quot;&gt;Easy Tasks&lt;/a&gt; for beginners. I took up &lt;a href=&quot;https://dev.haiku-os.org/ticket/9749&quot;&gt;Notification_Server: add the ability to choose the position of notifications (easy)&lt;/a&gt;. Honestly, I didn’t have a clue what to do to solve it. So I just posted what I would do on higher level. Fortunately, a contributor posted the files where I needed put my code changes. I had a lot of other doubts. Asking the community really helps.&lt;/p&gt;
+
+&lt;p&gt;It took around 3 weeks to get the patch merged to the source. Yes, it requires patience and lot of reviews.&lt;/p&gt;
+
+&lt;p&gt;Then over next couple of months I was able to make two more contributions. I had to search for doable bugs on their bug list, this also takes time and patience.&lt;/p&gt;
+
+&lt;h1 id=&quot;selected-organization-list&quot;&gt;Selected Organization List&lt;/h1&gt;
+
+&lt;p&gt;The list of selected organizations came in February 2018. Fortunately, Haiku was one of them.&lt;/p&gt;
+
+&lt;h1 id=&quot;my-idea-for-gsoc&quot;&gt;My Idea for GSoC&lt;/h1&gt;
+
+&lt;p&gt;Next thing to do is developing an idea for your GSoC project. Their are two ways, either you come up with an idea on your own (community really appreciates this) or take up an idea from org’s ideas page (most orgs have it).&lt;/p&gt;
+
+&lt;p&gt;Having our own idea comes with a risk. I had thought of an idea. So I pitched this idea to one of the previous year mentor. He told me that, even though the idea was good, it wasn’t what the org wanted to achieve. Haiku was in alpha that time, and their main focus was to make it stable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sharing the idea with at least someone in org is important&lt;/strong&gt;. Each org has their vision/mission. Your idea might not align with it. Or their may be some other reason. It would be terrible if you spent a lot of time in developing your idea and org does not want it.&lt;/p&gt;
+
+&lt;p&gt;Then I started to look for idea on their ideas page. I found &lt;strong&gt;Tracker add-on for a version control system&lt;/strong&gt;. Tracker is default file browser in Haiku. The motto of this idea was to create an add-on as a graphical user interface to git vcs. Pre-requisites were application development, UI Design and git. I knew these, so I found this interesting.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-proposal&quot;&gt;The Proposal&lt;/h1&gt;
+
+&lt;p&gt;Next thing to do is draft a proposal. I think this should be another blog post. But, I’ll try to brief it.&lt;/p&gt;
+
+&lt;p&gt;The org may have their own template of proposal, but here’s how the proposal should generally look like:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;About yourself&lt;/li&gt;
+  &lt;li&gt;Your programming background&lt;/li&gt;
+  &lt;li&gt;Your contributions to the organization(if any)&lt;/li&gt;
+  &lt;li&gt;Your idea in as much technical detail as possible&lt;/li&gt;
+  &lt;li&gt;Phases of your work (Keep it three, to align with GSoC evaluations)&lt;/li&gt;
+  &lt;li&gt;Proposed Timeline (weekly if possible, daily is the best)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It is a good practice that you share your draft with the community(GSoC dashboard provides this option). It would be great if this draft is in Google Doc, as it provides ability to comment.&lt;/p&gt;
+
+&lt;p&gt;The comments, suggestions, and critics are really important to shape your proposal.&lt;/p&gt;
+
+&lt;p&gt;For instance, Tracker puts its add-ons in a separate menu, and the community wanted that the git add-on should be in a separate menu. But, Tracker did not gave ability to add-on to have it’s own menu. So, I had to put my plans on handling this.&lt;/p&gt;
+
+&lt;p&gt;Another instance, I was planning to use system calls to communicate with git commands. A member suggested me to look upon libgit2, a git library. It made the whole project lot simpler.&lt;/p&gt;
+
+&lt;p&gt;These comments and suggestions and addressing them are one of the reasons that I got accepted.&lt;/p&gt;
+
+&lt;p&gt;You can find my proposal &lt;a href=&quot;https://drive.google.com/file/d/1nailoOCGmpRVo3sZ8mdXGmpuWxXdgf1T/view&quot;&gt;here&lt;/a&gt;. It’s good to have a look at previous year proposals. These are listed in &lt;a href=&quot;https://summerofcode.withgoogle.com/archive/&quot;&gt;GSoC Archive&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;dilemma-arista-or-gsoc&quot;&gt;Dilemma: Arista or GSoC?&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Come on, it’s an OR statement, both can be true.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I had also got summer internship at Arista Networks. I was in a great confusion on what to choose.&lt;/p&gt;
+
+&lt;p&gt;If I chose only GSoC, I won’t get a pre-placement offer and I would have to prepare for campus interviews.&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;If I chose only Arista,&lt;/del&gt; this is not an option. I won’t abandon the prestigious GSoC.&lt;/p&gt;
+
+&lt;p&gt;If I chose both, I’ll have to manage them both. It will make my life hectic. Most of my time will be utilized by them two. Plus, due to divided focus, It would be hard to show my dedication in internship which may lead me not getting the PPO. Also, if I didn’t get time for doing my GSoC, I may get failed. But, if I do both, it would put a good experience on my resume.&lt;/p&gt;
+
+&lt;p&gt;I started asking people for help. I had long discussions with Mohit Reddy. I asked few other seniors which worked at Arista. Most of them said that it will be really great if I did both, but I might have to compromise with my personal life, meaning less time to hang out with friends.&lt;/p&gt;
+
+&lt;p&gt;My dearest friend told me,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You should not lose what you have in your hand worrying about what will happen in future.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I ended up choosing both.&lt;/p&gt;
+
+&lt;p&gt;And I made Haiku aware of my internship and the choice of doing both. This was my personal choice.&lt;/p&gt;
+
+&lt;p&gt;In case you are wondering, I didn’t get PPO by Arista, and I had to prepare and appear for campus interviews.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Doing GSoC was one of the best programming experiences I’ve had. I got to learn a great deal of stuff.&lt;/p&gt;
+
+&lt;p&gt;If you are interested in knowing about my project under GSoC, check &lt;a href=&quot;https://hrily.github.io/TrackGit&quot;&gt;TrackGit&lt;/a&gt;.&lt;/p&gt;</content><category term="GSoC" /><category term="Haiku" /><category term="Open Source" /><summary type="html">April 23, 2018</summary></entry><entry><title type="html">Resources on Linux TCP Implementation</title><link href="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html" rel="alternate" type="text/html" title="Resources on Linux TCP Implementation" /><published>2018-04-23T00:00:00+05:30</published><updated>2018-04-23T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/04/23/linux-tcp</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html">&lt;p&gt;Hie&lt;/p&gt;
 
 &lt;p&gt;This semester I did my Advanced Computer Networks project on Linux TCP.  It was implementing TDCTCP in Linux Kernel.  There wasn’t any great outcome of this project output wise, which I’m sad of.  But the good news that this project taught a great deal about the workings of TCP in Linux.  So, I thought I’ll compile the resources I used as reference so that it will be useful for me in future or for someone else.&lt;/p&gt;
 

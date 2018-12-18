@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My GSoC 2018 Experience – Hrily's Blog</title>
+
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content1-Type" content="text/html; charset=UTF-8" />
+
+	<meta property="fb:app_id" content="170147553648927" />
+
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/src/css/highlight.css">
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="/blog/src/js/script.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112774988-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-112774988-1');
+	</script>
+
+	<script type="text/javascript">
+	
+		var onLoadPage = undefined;
+
+		function init() {
+			if (onLoadPage != undefined)
+				onLoadPage();
+		}
+
+		// window.requestAnimationFrame = window.requestAnimationFrame
+		// 		|| window.mozRequestAnimationFrame
+		// 		|| window.webkitRequestAnimationFrame
+		// 		|| window.msRequestAnimationFrame
+		// 		|| function (f) { return setTimeout(f, 1000 / 60) };// simulate calling code 60 
+
+		window.requestAnimFrame = function () {
+			return (
+				function (/* function */ callback) {
+					window.setTimeout(callback, 1000 / 60);
+				}
+			);
+		}();
+
+	</script>
+
+	<style>
+	
+		.sans {
+			font-family: 'Archivo Black', sans-serif;
+		}
+
+		.serif {
+			font-family: 'Vollkorn', serif;
+		}
+
+	</style>
+
+</head>
+<body onload="init()">
+
+	<main>
+
+		<style>
+
+	.post {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		padding-left: 90px;
+		padding-right: 60px;
+	}
+
+	.post .col-left {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.post img {
+		width: 100%;
+	}
+
+	.post .heading {
+		opacity: 1 !important;
+	}
+
+	.post pre, .post code {
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+	.post pre {
+		box-sizing: border-box;
+		width: 100%;
+		background-color: #272822;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: white;
+	}
+
+	.post figure {
+		margin: 0 !important;
+	}
+
+	.post .tags a {
+		box-sizing: border-box;
+		display: inline-block;
+		text-decoration: none;
+		padding: 8px 16px 8px 16px;
+		margin-top: 8px;
+		border: 2px solid blue;
+		font-weight: 500;
+	}
+
+	.post .tags a div {
+		display: inline;
+		color: blue;
+	}
+
+	.logo {
+		padding-top: 8px;
+		padding-bottom: 4px;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 4px solid blue;
+		transform: translateX(-50%) rotateZ(90deg) translateY(-50%);
+		position: fixed;
+		left: 0;
+		top: 220px;
+	}
+
+	.back {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		cursor: pointer;
+	}
+	
+	.back i {
+		padding: 8px;
+		border-radius: 100%;
+	}
+
+	.back:hover > i {
+		background-color: rgba(0, 0, 255, 0.1);
+	}
+
+	.fade-in {
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	#dummyLeftCol {
+		-webkit-transition: opacity 0.3s ease-in-out;
+		   -moz-transition: opacity 0.3s ease-in-out;
+		        transition: opacity 0.3s ease-in-out;
+	}
+
+	.hover-effect {
+		opacity: 0.3;
+	}
+
+	.hover-effect:hover {
+		opacity: 1;
+	}
+
+	@media only screen and (max-width: 1120px){
+		
+		.post {
+			padding: 90px 30px 30px 64px;
+		}
+
+		.post .row {
+			box-sizing: border-box;
+			width: 98%;
+		}
+	
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	var lastScrollTop = 0;
+
+	onLoadPage = () => {
+		let fadein = document.getElementsByClassName('fade-in');
+		let text = document.getElementsByClassName('col-right')[0];
+		let words = text.innerText.split(' ').length;
+		let readTime = words / 200;
+		let images = text.getElementsByTagName('img').length;
+		readTime += images * 12 / 60;
+		document.getElementById('read-time').innerHTML = Math.ceil(readTime) + ' MIN READ';
+		setTimeout(() => {
+			requestAnimFrame(() => {
+				for (let i = 0; i < fadein.length; i++)
+					fadein[i].style.opacity = 1;
+				console.log(document.body.offsetWidth);
+				if (document.body.offsetWidth > 1120) {
+					detachLeftCol();
+					window.onscroll = () => {
+						var st = window.pageYOffset || document.documentElement.scrollTop;
+						if (st > lastScrollTop)
+							document.getElementById('dummyLeftCol').className = 'col-left sans hover-effect'
+						else
+							document.getElementById('dummyLeftCol').className = 'col-left sans';
+						lastScrollTop = st;
+					}
+				}
+			});
+		}, 100);
+
+		document.getElementById('fb-comments').setAttribute('data-href', window.location);
+	}
+
+	function detachLeftCol() {
+		let leftCol = document.getElementById('leftCol');
+		let dummyLeftCol = leftCol.cloneNode(true);
+		dummyLeftCol.id = 'dummyLeftCol';
+		dummyLeftCol.style.position = 'fixed';
+		dummyLeftCol.style.top = leftCol.offsetTop + 'px';
+		dummyLeftCol.style.left = leftCol.offsetLeft + 'px';
+		dummyLeftCol.style.width = leftCol.offsetWidth + 'px';
+		dummyLeftCol.style.height = leftCol.offsetHeight + 'px';
+		requestAnimFrame(() => {
+			document.getElementById('post').appendChild(dummyLeftCol);
+			leftCol.style.visibility = 'hidden';
+		});
+	}
+
+</script>
+
+<a class="fade-in back" href="/blog/">
+	<i class="material-icons blue sub-heading">arrow_back</i>
+</a>
+
+<div class="fade-in logo sub-heading sans"><span class="blue">Hrishikesh</span>Hiraskar</div>
+
+<div class="post" id="post">
+	<div class="row">
+		
+		<div class="col-left sans" id="leftCol">
+			<div class="heading black">My GSoC 2018 Experience</div>
+			<div class="fade-in">
+				<br>
+				DECEMBER 18, 2018<br><br>
+				<div id="read-time"></div>
+				<br>
+				TAGS
+				<div class="tags">
+					
+						<a href="/blog/tags#GSOC">
+							<div>GSOC</div>
+						</a>
+					
+						<a href="/blog/tags#HAIKU">
+							<div>HAIKU</div>
+						</a>
+					
+						<a href="/blog/tags#OPEN SOURCE">
+							<div>OPEN SOURCE</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="fade-in col-right serif">
+			<div class="sub-heading"><b>How did I end up creating TrackGit for Haiku</b></div>
+			<p><em>April 23, 2018</em></p>
+
+<blockquote>
+  <p>Senior: Congrats, Bro!!!<br />
+Me: (Umm… What did I do now?) Why?<br />
+Senior: You are accepted to GSoC!<br />
+Me: (Surprised) Really?<br />
+Senior: Ha be! Check the list. Salman also got accepted. Come near SBI. We’re waiting for you.</p>
+</blockquote>
+
+<p>This was conversation between me and my senior <a href="https://github.com/mohitreddy1996">Mohit Reddy</a>. I hurriedly opened the accepted student list. I was blown. I got accepted to GSoC by Haiku!!! One of my dream finally came true!</p>
+
+<p>And a cherry on the cake, my best friend <a href="https://github.com/salman-bhai/">Salman Shah</a> also got accepted by Internet Archive.</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>It’s been four months since I completed my GSoC project. Many juniors come to me asking my experience in GSoC and what I did to get accepted to it. So, here’s everything about my experience in GSoC.</p>
+
+<h1 id="finding-an-organization">Finding an Organization</h1>
+
+<p>First thing to do is finding an organization which has good probability of getting into GSoC. You can check previous years organizations list. Generally, the organizations selected in last couple of years have a good <strong>chance</strong> of getting the following year. Also check if the organization is planning to apply for GSoC.</p>
+
+<p>I started looking for organizations in December 2017. The early the better. Around that time, I was really interested in Operating Systems. So, I started looking for orgs(organizations) which worked on OS. Mohit Reddy had given us a list of organizations which he found good. The list had ReactOS and Haiku. I had heard of ReactOS, so I looked upon their repository. But I found the code base a little hard for me. Then I moved to Haiku. It’s an operating system based on BeOS of 90s. I found the codebase easy to understand due to C++ as their primary language.</p>
+
+<h1 id="getting-my-first-patch">Getting my first patch</h1>
+
+<p>Next thing to do is getting a patch in the org repository. Some orgs have this as requirement for application. But this is really important as this exposes your work to the community, and they get to know you.</p>
+
+<p>Fortunately, Haiku had a list of <a href="https://dev.haiku-os.org/wiki/EasyTasks">Easy Tasks</a> for beginners. I took up <a href="https://dev.haiku-os.org/ticket/9749">Notification_Server: add the ability to choose the position of notifications (easy)</a>. Honestly, I didn’t have a clue what to do to solve it. So I just posted what I would do on higher level. Fortunately, a contributor posted the files where I needed put my code changes. I had a lot of other doubts. Asking the community really helps.</p>
+
+<p>It took around 3 weeks to get the patch merged to the source. Yes, it requires patience and lot of reviews.</p>
+
+<p>Then over next couple of months I was able to make two more contributions. I had to search for doable bugs on their bug list, this also takes time and patience.</p>
+
+<h1 id="selected-organization-list">Selected Organization List</h1>
+
+<p>The list of selected organizations came in February 2018. Fortunately, Haiku was one of them.</p>
+
+<h1 id="my-idea-for-gsoc">My Idea for GSoC</h1>
+
+<p>Next thing to do is developing an idea for your GSoC project. Their are two ways, either you come up with an idea on your own (community really appreciates this) or take up an idea from org’s ideas page (most orgs have it).</p>
+
+<p>Having our own idea comes with a risk. I had thought of an idea. So I pitched this idea to one of the previous year mentor. He told me that, even though the idea was good, it wasn’t what the org wanted to achieve. Haiku was in alpha that time, and their main focus was to make it stable.</p>
+
+<p><strong>Sharing the idea with at least someone in org is important</strong>. Each org has their vision/mission. Your idea might not align with it. Or their may be some other reason. It would be terrible if you spent a lot of time in developing your idea and org does not want it.</p>
+
+<p>Then I started to look for idea on their ideas page. I found <strong>Tracker add-on for a version control system</strong>. Tracker is default file browser in Haiku. The motto of this idea was to create an add-on as a graphical user interface to git vcs. Pre-requisites were application development, UI Design and git. I knew these, so I found this interesting.</p>
+
+<h1 id="the-proposal">The Proposal</h1>
+
+<p>Next thing to do is draft a proposal. I think this should be another blog post. But, I’ll try to brief it.</p>
+
+<p>The org may have their own template of proposal, but here’s how the proposal should generally look like:</p>
+
+<ol>
+  <li>About yourself</li>
+  <li>Your programming background</li>
+  <li>Your contributions to the organization(if any)</li>
+  <li>Your idea in as much technical detail as possible</li>
+  <li>Phases of your work (Keep it three, to align with GSoC evaluations)</li>
+  <li>Proposed Timeline (weekly if possible, daily is the best)</li>
+</ol>
+
+<p>It is a good practice that you share your draft with the community(GSoC dashboard provides this option). It would be great if this draft is in Google Doc, as it provides ability to comment.</p>
+
+<p>The comments, suggestions, and critics are really important to shape your proposal.</p>
+
+<p>For instance, Tracker puts its add-ons in a separate menu, and the community wanted that the git add-on should be in a separate menu. But, Tracker did not gave ability to add-on to have it’s own menu. So, I had to put my plans on handling this.</p>
+
+<p>Another instance, I was planning to use system calls to communicate with git commands. A member suggested me to look upon libgit2, a git library. It made the whole project lot simpler.</p>
+
+<p>These comments and suggestions and addressing them are one of the reasons that I got accepted.</p>
+
+<p>You can find my proposal <a href="https://drive.google.com/file/d/1nailoOCGmpRVo3sZ8mdXGmpuWxXdgf1T/view">here</a>. It’s good to have a look at previous year proposals. These are listed in <a href="https://summerofcode.withgoogle.com/archive/">GSoC Archive</a>.</p>
+
+<h1 id="dilemma-arista-or-gsoc">Dilemma: Arista or GSoC?</h1>
+
+<blockquote>
+  <p>Come on, it’s an OR statement, both can be true.</p>
+</blockquote>
+
+<p>I had also got summer internship at Arista Networks. I was in a great confusion on what to choose.</p>
+
+<p>If I chose only GSoC, I won’t get a pre-placement offer and I would have to prepare for campus interviews.</p>
+
+<p><del>If I chose only Arista,</del> this is not an option. I won’t abandon the prestigious GSoC.</p>
+
+<p>If I chose both, I’ll have to manage them both. It will make my life hectic. Most of my time will be utilized by them two. Plus, due to divided focus, It would be hard to show my dedication in internship which may lead me not getting the PPO. Also, if I didn’t get time for doing my GSoC, I may get failed. But, if I do both, it would put a good experience on my resume.</p>
+
+<p>I started asking people for help. I had long discussions with Mohit Reddy. I asked few other seniors which worked at Arista. Most of them said that it will be really great if I did both, but I might have to compromise with my personal life, meaning less time to hang out with friends.</p>
+
+<p>My dearest friend told me,</p>
+
+<blockquote>
+  <p>You should not lose what you have in your hand worrying about what will happen in future.</p>
+</blockquote>
+
+<p>I ended up choosing both.</p>
+
+<p>And I made Haiku aware of my internship and the choice of doing both. This was my personal choice.</p>
+
+<p>In case you are wondering, I didn’t get PPO by Arista, and I had to prepare and appear for campus interviews.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Doing GSoC was one of the best programming experiences I’ve had. I got to learn a great deal of stuff.</p>
+
+<p>If you are interested in knowing about my project under GSoC, check <a href="https://hrily.github.io/TrackGit">TrackGit</a>.</p>
+
+
+			<!-- Facebook Comments -->
+			<div id="fb-root"></div>
+			<script>(function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=170147553648927&autoLogAppEvents=1';
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+			<br>
+			<div><h2>Comments</h2></div>
+			<div id="fb-comments" class="fb-comments" data-numposts="3"></div>
+		</div>
+
+	</div>
+</div> 
+
+		<div class="fade-in footer">
+		
+			<div class="x-heading sans">
+				<soan class="blue">Hrishikesh</soan>Hiraskar
+			</div>
+
+			<div class="links-and-cr">
+				<div class="llinks sans">
+					<a href="/">SHOWCASE</a>
+					<a href="/Resume">RESUME</a>
+					<a href="/Design">DESIGN</a>
+					<a href="/blog/about">ABOUT ME</a>
+				</div>
+				<div class="cr serif">&copy 2017-18 Hrishikesh Hiraskar</div>
+			</div>
+		
+		</div>
+
+	</main>
+
+</body>
+</html>
