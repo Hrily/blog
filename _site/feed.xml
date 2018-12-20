@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2018-12-20T12:07:03+05:30</updated><id>http://0.0.0.0:4000/blog//</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://0.0.0.0:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/blog/" rel="alternate" type="text/html" /><updated>2018-12-20T12:50:12+05:30</updated><id>http://0.0.0.0:4000/blog/feed.xml</id><title type="html">Hrily’s Blog</title><subtitle>I believe in making lives of people easy.  And I do this by programming and designing.   I love coding, developing Web and Mobile Apps, contributing to Open Source, and  Designing.  I'm currently studying B.Tech. in Computer Engineering at National  Institute of Technology, Karnataka.
 </subtitle><entry><title type="html">My GSoC 2018 Experience</title><link href="http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience.html" rel="alternate" type="text/html" title="My GSoC 2018 Experience" /><published>2018-12-18T00:00:00+05:30</published><updated>2018-12-18T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience.html">&lt;p&gt;&lt;em&gt;April 23, 2018&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -106,7 +106,7 @@ Senior: Ha be! Check the list. Salman also got accepted. Come near SBI. We’re 
 
 &lt;p&gt;Doing GSoC was one of the best programming experiences I’ve had. I got to learn a great deal of stuff.&lt;/p&gt;
 
-&lt;p&gt;If you are interested in knowing about my project under GSoC, check &lt;a href=&quot;https://hrily.github.io/TrackGit&quot;&gt;TrackGit&lt;/a&gt;.&lt;/p&gt;</content><category term="GSoC" /><category term="Haiku" /><category term="Open Source" /><summary type="html">April 23, 2018</summary></entry><entry><title type="html">Resources on Linux TCP Implementation</title><link href="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html" rel="alternate" type="text/html" title="Resources on Linux TCP Implementation" /><published>2018-04-23T00:00:00+05:30</published><updated>2018-04-23T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/04/23/linux-tcp</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html">&lt;p&gt;Hie&lt;/p&gt;
+&lt;p&gt;If you are interested in knowing about my project under GSoC, check &lt;a href=&quot;https://hrily.github.io/TrackGit&quot;&gt;TrackGit&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="GSoC" /><category term="Haiku" /><category term="Open Source" /><summary type="html">April 23, 2018</summary></entry><entry><title type="html">Resources on Linux TCP Implementation</title><link href="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html" rel="alternate" type="text/html" title="Resources on Linux TCP Implementation" /><published>2018-04-23T00:00:00+05:30</published><updated>2018-04-23T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2018/04/23/linux-tcp</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html">&lt;p&gt;Hie&lt;/p&gt;
 
 &lt;p&gt;This semester I did my Advanced Computer Networks project on Linux TCP.  It was implementing TDCTCP in Linux Kernel.  There wasn’t any great outcome of this project output wise, which I’m sad of.  But the good news that this project taught a great deal about the workings of TCP in Linux.  So, I thought I’ll compile the resources I used as reference so that it will be useful for me in future or for someone else.&lt;/p&gt;
 
@@ -146,7 +146,7 @@ Senior: Ha be! Check the list. Salman also got accepted. Come near SBI. We’re 
   &lt;p&gt;&lt;a href=&quot;http://pdf.th7.cn/down/files/1312/tcpip_architecture_design_and_implementation_in_linux.pdf&quot;&gt;TCP/IP Design, Architecture and Implementation in Linux&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;I hope you find this compilation useful.  If you wan’t me to add something to this compilation, please feel free to message or comment.&lt;/p&gt;</content><category term="Networks" /><category term="Linux" /><summary type="html">Hie</summary></entry><entry><title type="html">About my New Blog Theme</title><link href="http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme.html" rel="alternate" type="text/html" title="About my New Blog Theme" /><published>2017-12-18T00:00:00+05:30</published><updated>2017-12-18T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme.html">&lt;p&gt;Again, I’m writing after a long time. Though, I wrote couple of blogs for IEEE NITK which can be found &lt;a href=&quot;https://ieeenitk.org/blog//installing-ubuntu/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://ieeenitk.org/blog//using-mdns-in-iot/&quot;&gt;here&lt;/a&gt;. I’ll try to write more posts.&lt;/p&gt;
+&lt;p&gt;I hope you find this compilation useful.  If you wan’t me to add something to this compilation, please feel free to message or comment.&lt;/p&gt;</content><author><name></name></author><category term="Networks" /><category term="Linux" /><summary type="html">Hie</summary></entry><entry><title type="html">About my New Blog Theme</title><link href="http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme.html" rel="alternate" type="text/html" title="About my New Blog Theme" /><published>2017-12-18T00:00:00+05:30</published><updated>2017-12-18T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme.html">&lt;p&gt;Again, I’m writing after a long time. Though, I wrote couple of blogs for IEEE NITK which can be found &lt;a href=&quot;https://ieeenitk.org/blog//installing-ubuntu/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://ieeenitk.org/blog//using-mdns-in-iot/&quot;&gt;here&lt;/a&gt;. I’ll try to write more posts.&lt;/p&gt;
 
 &lt;p&gt;Anyways, the first thing I did this winter was revamping the blog theme because it had been long time and it didn’t change.&lt;/p&gt;
 
@@ -194,7 +194,7 @@ Senior: Ha be! Check the list. Salman also got accepted. Come near SBI. We’re 
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
-&lt;p&gt;The making of new blog theme was a great learning experience for me. I learnt the importance of Typography and Micro-interactions in today’s web. I have also shared with you what I’ve learnt over here. I hope you learn from this too…&lt;/p&gt;</content><category term="UI" /><summary type="html">Again, I’m writing after a long time. Though, I wrote couple of blogs for IEEE NITK which can be found here and here. I’ll try to write more posts.</summary></entry><entry><title type="html">Render Large HTML Tables efficiently using Infinite Scrolling</title><link href="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html" rel="alternate" type="text/html" title="Render Large HTML Tables efficiently using Infinite Scrolling" /><published>2017-05-20T00:00:00+05:30</published><updated>2017-05-20T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html">&lt;p&gt;Hie&lt;/p&gt;
+&lt;p&gt;The making of new blog theme was a great learning experience for me. I learnt the importance of Typography and Micro-interactions in today’s web. I have also shared with you what I’ve learnt over here. I hope you learn from this too…&lt;/p&gt;</content><author><name></name></author><category term="UI" /><summary type="html">Again, I’m writing after a long time. Though, I wrote couple of blogs for IEEE NITK which can be found here and here. I’ll try to write more posts.</summary></entry><entry><title type="html">Render Large HTML Tables efficiently using Infinite Scrolling</title><link href="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html" rel="alternate" type="text/html" title="Render Large HTML Tables efficiently using Infinite Scrolling" /><published>2017-05-20T00:00:00+05:30</published><updated>2017-05-20T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html">&lt;p&gt;Hie&lt;/p&gt;
 
 &lt;p&gt;Writing after a long time. I’m currently doing an internship along with my friend Salman, where I am creating a database web app to view datatables.&lt;/p&gt;
 
@@ -338,7 +338,7 @@ You can see the demo of the Infinite Scroll below. You can also take a look at t
 
 &lt;p&gt;&lt;a href=&quot;https://hrily.github.io/InfiniteScrollDemo/&quot;&gt;View in Action&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Hrily/InfiniteScrollDemo&quot;&gt;View on Github&lt;/a&gt;&lt;/p&gt;</content><category term="HTML" /><category term="JS" /><category term="jQuery" /><summary type="html">Hie</summary></entry><entry><title type="html">Augmented Reality App in Android : Tutorial - Part 2</title><link href="http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2.html" rel="alternate" type="text/html" title="Augmented Reality App in Android : Tutorial - Part 2" /><published>2016-12-30T00:00:00+05:30</published><updated>2016-12-30T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2.html">&lt;p&gt;Hie,&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Hrily/InfiniteScrollDemo&quot;&gt;View on Github&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="HTML" /><category term="JS" /><category term="jQuery" /><summary type="html">Hie</summary></entry><entry><title type="html">Augmented Reality App in Android : Tutorial - Part 2</title><link href="http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2.html" rel="alternate" type="text/html" title="Augmented Reality App in Android : Tutorial - Part 2" /><published>2016-12-30T00:00:00+05:30</published><updated>2016-12-30T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2.html">&lt;p&gt;Hie,&lt;/p&gt;
 
 &lt;p&gt;Welcome to the &lt;strong&gt;Augmented Reality App in Android : Tutorial - Part 2&lt;/strong&gt;. I hope you liked and understood the Part 1 of the tutorial. If you haven’t been to the it, please goto the Part 1.&lt;/p&gt;
 
@@ -497,7 +497,7 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 &lt;p&gt;&lt;a href=&quot;https://github.com/Hrily/ARTutorial&quot;&gt;View Full Project&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Note:&lt;/strong&gt; If the app says “Using Game Rotation Vector. Direction may not be accurate!”, then your device doesn’t have compass i.e. the device can’t locate North. The angle available in this case is not relative to North but somewhere else. More information &lt;a href=&quot;https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Android" /><category term="Augmented Reality" /><summary type="html">Hie,</summary></entry><entry><title type="html">Augmented Reality App in Android : Tutorial - Part 1</title><link href="http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1.html" rel="alternate" type="text/html" title="Augmented Reality App in Android : Tutorial - Part 1" /><published>2016-12-22T00:00:00+05:30</published><updated>2016-12-22T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1.html">&lt;p&gt;Hie,&lt;/p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt; If the app says “Using Game Rotation Vector. Direction may not be accurate!”, then your device doesn’t have compass i.e. the device can’t locate North. The angle available in this case is not relative to North but somewhere else. More information &lt;a href=&quot;https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="Android" /><category term="Augmented Reality" /><summary type="html">Hie,</summary></entry><entry><title type="html">Augmented Reality App in Android : Tutorial - Part 1</title><link href="http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1.html" rel="alternate" type="text/html" title="Augmented Reality App in Android : Tutorial - Part 1" /><published>2016-12-22T00:00:00+05:30</published><updated>2016-12-22T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1.html">&lt;p&gt;Hie,&lt;/p&gt;
 
 &lt;p&gt;We had Microsoft code.fun.do Hackathon in our third semester and I, along with my two friends Salman and Aiman, created a Location and Augmented Reality based app, which won us the Hackathon. Interestingly, I won the hackathon for second time :D, the first was in the first year.&lt;/p&gt;
 
@@ -575,7 +575,26 @@ The device itself will form some angle with the North. Let the angle formed by t
 &lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/blog/images/ar/azimuth.jpg&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-That’s all. We got to know how we are gonna proceed. The next part is Implementation. Stay tuned for the next part of the Tutorial.&lt;/p&gt;</content><category term="Android" /><category term="Augmented Reality" /><summary type="html">Hie,</summary></entry><entry><title type="html">Material Ripple Transition</title><link href="http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition.html" rel="alternate" type="text/html" title="Material Ripple Transition" /><published>2016-12-17T00:00:00+05:30</published><updated>2016-12-17T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition.html">&lt;p&gt;Hie,&lt;/p&gt;
+That’s all. We got to know how we are gonna proceed. The next part is Implementation. Stay tuned for the next part of the Tutorial.&lt;/p&gt;</content><author><name></name></author><category term="Android" /><category term="Augmented Reality" /><summary type="html">Hie,</summary></entry><entry><title type="html">Jekyll is awesome!</title><link href="http://0.0.0.0:4000/blog/2016/12/17/first-blog.html" rel="alternate" type="text/html" title="Jekyll is awesome!" /><published>2016-12-17T00:00:00+05:30</published><updated>2016-12-17T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/17/first-blog</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/17/first-blog.html">&lt;p&gt;Hie,&lt;/p&gt;
+
+&lt;p&gt;Just created my blog using &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; - the fast and minimilastic website generator. It’s really easy to implement and I really liked it. So, I’m dedicating my first blog to it.&lt;/p&gt;
+
+&lt;p&gt;One of my friend suggested me about Jekyll when I told him about my plan to create a blog. Then I searched the web about it and started creating my blog. And in just few hours, my blog was ready!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+For those who are wondering how I created the blog, following are the links for reference :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/home/&quot;&gt;Jekyll Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.hongkiat.com/blog/blog-with-jekyll/&quot;&gt;Tutorial by Hongikiat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/&quot;&gt;Ready to Make Jekyll Blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.jokecamp.com/blog/listing-jekyll-posts-by-tag/&quot;&gt;Tags listing in Jekyll&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Search around for more, there are lot of sites to help.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for more posts…&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">Hie,</summary></entry><entry><title type="html">Material Ripple Transition</title><link href="http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition.html" rel="alternate" type="text/html" title="Material Ripple Transition" /><published>2016-12-17T00:00:00+05:30</published><updated>2016-12-17T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition.html">&lt;p&gt;Hie,&lt;/p&gt;
 
 &lt;p&gt;I love &lt;a href=&quot;material.io&quot;&gt;Material Design&lt;/a&gt;. It is the design language developed by Google which is based on principles of paper. The theme is flat, but real enough to visualize the depth.&lt;/p&gt;
 
@@ -711,23 +730,4 @@ That’s it, we’re done here!&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;
 &lt;a href=&quot;https://hrily.github.io/MaterialRippleTransition&quot;&gt;View in Action&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Hrily/MaterialRippleTransition&quot;&gt;View on Github&lt;/a&gt;&lt;/p&gt;</content><category term="HTML" /><category term="CSS" /><category term="JS" /><category term="Material Design" /><summary type="html">Hie,</summary></entry><entry><title type="html">Jekyll is awesome!</title><link href="http://0.0.0.0:4000/blog/2016/12/17/first-blog.html" rel="alternate" type="text/html" title="Jekyll is awesome!" /><published>2016-12-17T00:00:00+05:30</published><updated>2016-12-17T00:00:00+05:30</updated><id>http://0.0.0.0:4000/blog/2016/12/17/first-blog</id><content type="html" xml:base="http://0.0.0.0:4000/blog/2016/12/17/first-blog.html">&lt;p&gt;Hie,&lt;/p&gt;
-
-&lt;p&gt;Just created my blog using &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; - the fast and minimilastic website generator. It’s really easy to implement and I really liked it. So, I’m dedicating my first blog to it.&lt;/p&gt;
-
-&lt;p&gt;One of my friend suggested me about Jekyll when I told him about my plan to create a blog. Then I searched the web about it and started creating my blog. And in just few hours, my blog was ready!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-For those who are wondering how I created the blog, following are the links for reference :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/home/&quot;&gt;Jekyll Docs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.hongkiat.com/blog/blog-with-jekyll/&quot;&gt;Tutorial by Hongikiat&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/&quot;&gt;Ready to Make Jekyll Blog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.jokecamp.com/blog/listing-jekyll-posts-by-tag/&quot;&gt;Tags listing in Jekyll&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Search around for more, there are lot of sites to help.&lt;/p&gt;
-
-&lt;p&gt;Stay tuned for more posts…&lt;/p&gt;</content><category term="Jekyll" /><summary type="html">Hie,</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/Hrily/MaterialRippleTransition&quot;&gt;View on Github&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="HTML" /><category term="CSS" /><category term="JS" /><category term="Material Design" /><summary type="html">Hie,</summary></entry></feed>
