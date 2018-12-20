@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2018/12/18/my-gsoc-experience.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2018/04/23/linux-tcp.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2017/12/18/new-blog-theme.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2017/05/20/rendering-large-html-tables.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2016/12/30/ar-tutorial-2.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2016/12/22/ar-tutorial-1.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2016/12/17/material-ripple-transition.html</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://0.0.0.0:4000/blog/2016/12/17/first-blog.html</loc>
+	  </url>
+	
+</urlset>

@@ -43,3 +43,10 @@ permalink: /:year/:month/:day/:title.html
 # Old jekyll-paginate pagination logic
 paginate: 5
 paginate_path: "/page/:num/"
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
