@@ -177,6 +177,20 @@ body, html, main {
     font-weight: 300;
 }
 
+.pagination {
+    padding: 16px;
+    z-index: 1;
+}
+
+.pagination a, .pagination span {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.pagination span {
+    opacity: 0.7;
+}
+
 @media only screen and (max-width: 1120px){
 
     .x-heading {
