@@ -77,6 +77,8 @@ These comments and suggestions and addressing them are one of the reasons that I
 
 You can find my proposal [here](https://drive.google.com/file/d/1nailoOCGmpRVo3sZ8mdXGmpuWxXdgf1T/view). It's good to have a look at previous year proposals. These are listed in [GSoC Archive](https://summerofcode.withgoogle.com/archive/).
 
+Also, great thanks to [Mohit P. Tahiliani](https://github.com/mohittahiliani) for reviewing my proposal multiple times and for giving me suggestions on it.
+
 # Dilemma: Arista or GSoC?
 
 > Come on, it's an OR statement, both can be true.
