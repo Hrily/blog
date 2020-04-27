@@ -91,26 +91,31 @@
 		opacity: 1 !important;
 	}
 
-	.post pre, .post code {
-		white-space: pre-wrap;       /* css-3 */
-		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-		white-space: -pre-wrap;      /* Opera 4-6 */
-		white-space: -o-pre-wrap;    /* Opera 7 */
-		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	.post code {
+		display: inline-block;
+		padding-right: 16px;
+	}
+
+	.post code.highlighter-rouge {
+		background: #e5e5e5;
+		padding: 1px 4px 1px 4px;
 	}
 
 	.post pre {
 		box-sizing: border-box;
 		width: 100%;
-		background-color: #272822;
-		padding-top: 18px;
-		padding-bottom: 18px;
-		padding-left: 40px;
-		padding-right: 40px;
-		color: white;
+		overflow-x: auto;
+		display: inline-block;
+		color: black;
+		background-color: #e5e5e5;
+		padding-left: 18px;
+		padding-right: 16px;
+		padding-top: 16px;
+		padding-bottom: 16px;
 	}
 
 	.post figure {
+		width: 100%;
 		margin: 0 !important;
 	}
 
@@ -454,7 +459,8 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now itâ
 		</div>
 
 	</div>
-</div> 
+</div>
+ 
 
 		<div class="fade-in footer">
 		
