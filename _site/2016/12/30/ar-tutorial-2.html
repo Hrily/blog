@@ -423,7 +423,7 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 		<span class="kt">float</span> <span class="n">ratio</span> <span class="o">=</span> <span class="o">((</span><span class="kt">float</span><span class="o">)</span> <span class="o">(</span><span class="n">mAzimuthTheoretical</span> <span class="o">-</span> <span class="n">minAngle</span> <span class="o">+</span> <span class="mf">360.0</span><span class="o">)</span> <span class="o">%</span> <span class="mi">360</span><span class="o">)</span>
 				<span class="o">/</span> <span class="o">((</span><span class="kt">float</span><span class="o">)</span> <span class="o">(</span><span class="n">maxAngle</span> <span class="o">-</span> <span class="n">minAngle</span> <span class="o">+</span> <span class="mf">360.0</span><span class="o">)</span> <span class="o">%</span> <span class="mi">360</span><span class="o">);</span>
 		<span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">lp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">(</span>
-				<span class="n">ViewGroup</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">,</span> 
+				<span class="n">ViewGroup</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">,</span>
 				<span class="n">ViewGroup</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">WRAP_CONTENT</span><span class="o">);</span>
 		<span class="n">lp</span><span class="o">.</span><span class="na">topMargin</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">display</span><span class="o">.</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">*</span> <span class="n">ratio</span><span class="o">);</span>
 		<span class="n">lp</span><span class="o">.</span><span class="na">leftMargin</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">pointerIcon</span><span class="o">.</span><span class="na">getWidth</span><span class="o">();</span>
@@ -442,6 +442,9 @@ In Part 1, we have seen what is the Theory behind the Augmented Reality. Now it�
 
 <p><br />
 <strong>Note:</strong> If the app says “Using Game Rotation Vector. Direction may not be accurate!”, then your device doesn’t have compass i.e. the device can’t locate North. The angle available in this case is not relative to North but somewhere else. More information <a href="https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector">here</a>.</p>
+
+<p><br />
+In case you are looking for career in AR and want a primer on it, you should definitely checkout this <a href="https://www.toptal.com/augmented-reality#hiring-guide">Hiring Guide by Toptal</a></p>
 
 
 			<!-- Facebook Comments -->

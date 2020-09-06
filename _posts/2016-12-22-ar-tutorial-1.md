@@ -58,7 +58,7 @@ Let's keep the device location at origin and the North at 0&deg;. Let's call the
 
 > The Azimuth is the angle formed between a reference direction (North) and a line from the observer to a point of interest
 
-But how are we goind to calculate azimuth? The answer is simple trigonometry. Let `dx` be the difference in x-coordinates of the device and POI and let `dy` be the difference in y-coordinate. Then 
+But how are we goind to calculate azimuth? The answer is simple trigonometry. Let `dx` be the difference in x-coordinates of the device and POI and let `dy` be the difference in y-coordinate. Then
 
 <br>
 <p class="image"><img src="{{ site.baseurl }}/images/ar/tanphi.jpg"/></p>
@@ -81,3 +81,6 @@ Now, all we need to do is to check if the POI lies in the sector created by Came
 
 <br>
 That's all. We got to know how we are gonna proceed. The next part is Implementation. Stay tuned for the next part of the Tutorial.
+
+<br>
+In case you are looking for career in AR and want a primer on it, you should definitely checkout this [Hiring Guide by Toptal](https://www.toptal.com/augmented-reality#hiring-guide)

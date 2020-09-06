@@ -150,7 +150,7 @@ public void onAzimuthChanged(float azimuthChangedFrom, float azimuthChangedTo) {
 		float ratio = ((float) (mAzimuthTheoretical - minAngle + 360.0) % 360)
 				/ ((float) (maxAngle - minAngle + 360.0) % 360);
 		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-				ViewGroup.LayoutParams.WRAP_CONTENT, 
+				ViewGroup.LayoutParams.WRAP_CONTENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 		lp.topMargin = (int) (display.getHeight() * ratio);
 		lp.leftMargin = display.getWidth()/2 - pointerIcon.getWidth();
@@ -170,3 +170,6 @@ That's it. Now you can build the app, deploy and test it on your device. In case
 
 <br>
 **Note:** If the app says "Using Game Rotation Vector. Direction may not be accurate!", then your device doesn't have compass i.e. the device can't locate North. The angle available in this case is not relative to North but somewhere else. More information [here](https://source.android.com/devices/sensors/sensor-types.html#game_rotation_vector).
+
+<br>
+In case you are looking for career in AR and want a primer on it, you should definitely checkout this [Hiring Guide by Toptal](https://www.toptal.com/augmented-reality#hiring-guide)
